@@ -16,446 +16,14 @@ UI_page1ViewBase::UI_page1ViewBase()
     add(__background);
 
     background.setPosition(0, 0, 800, 480);
-    background.setOrigin(0.0f, 0.0f);
-    background.setScale(1.0f, 1.0f);
-    background.setAngle(0.0f);
-    backgroundPainter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    background.setPainter(backgroundPainter);
-    const touchgfx::AbstractShape::ShapePoint<float> backgroundPoints[4] = { { 0.0f, 0.0f }, { 800.0f, 0.0f }, { 800.0f, 480.0f }, { 0.0f, 480.0f } };
-    background.setShape(backgroundPoints);
+    black_background.setPosition(0, 0, 800, 480);
+    black_background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    background.add(black_background);
+
     add(background);
 
-    fps_counter_value.setPosition(631, 421, 38, 42);
-    fps_counter_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    fps_counter_value.setLinespacing(0);
-    Unicode::snprintf(fps_counter_valueBuffer, FPS_COUNTER_VALUE_SIZE, "%s", touchgfx::TypedText(T_FPS_COUNTER_VALUE).getText());
-    fps_counter_value.setWildcard(fps_counter_valueBuffer);
-    fps_counter_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RIB5));
-    add(fps_counter_value);
-
-    fps_counter.setPosition(671, 421, 57, 42);
-    fps_counter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    fps_counter.setLinespacing(0);
-    fps_counter.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TVWU));
-    add(fps_counter);
-
-    efficiency_bar_gradation.setPosition(239, 400, 320, 40);
-    efficiency_bar_gradation.setVisible(false);
-    efficiency_min_legend.setPosition(2, 0, 56, 40);
-    efficiency_min_legend.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    efficiency_min_legend.setLinespacing(0);
-    efficiency_min_legend.setTypedText(touchgfx::TypedText(T___SINGLEUSE_M42X));
-    efficiency_bar_gradation.add(efficiency_min_legend);
-
-    efficiency_max_legend.setPosition(240, 0, 75, 40);
-    efficiency_max_legend.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    efficiency_max_legend.setLinespacing(0);
-    efficiency_max_legend.setTypedText(touchgfx::TypedText(T___SINGLEUSE_511U));
-    efficiency_bar_gradation.add(efficiency_max_legend);
-
-    efficiency_up_legend.setPosition(150, 0, 75, 40);
-    efficiency_up_legend.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    efficiency_up_legend.setLinespacing(0);
-    efficiency_up_legend.setTypedText(touchgfx::TypedText(T___SINGLEUSE_C47P));
-    efficiency_bar_gradation.add(efficiency_up_legend);
-
-    add(efficiency_bar_gradation);
-
-    pitch_cmd_viewer.setPosition(0, 400, 240, 40);
-    pitch_cmd_value.setPosition(0, 0, 240, 40);
-    pitch_cmd_value.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    pitch_cmd_value.setLinespacing(0);
-    Unicode::snprintf(pitch_cmd_valueBuffer, PITCH_CMD_VALUE_SIZE, "%s", touchgfx::TypedText(T_PITCH_CMD_VALUE).getText());
-    pitch_cmd_value.setWildcard(pitch_cmd_valueBuffer);
-    pitch_cmd_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PPHW));
-    pitch_cmd_value.setVisible(false);
-    pitch_cmd_viewer.add(pitch_cmd_value);
-
-    add(pitch_cmd_viewer);
-
-    wind_speed_viewer.setPosition(600, 342, 200, 40);
-    line1_3_2_1.setPosition(238, 0, 2, 40);
-    line1_3_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    line1_3_2_1.setPainter(line1_3_2_1Painter);
-    line1_3_2_1.setStart(5, 0);
-    line1_3_2_1.setEnd(5, 45);
-    line1_3_2_1.setLineWidth(10);
-    line1_3_2_1.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
-    line1_3_2_1.setVisible(false);
-    wind_speed_viewer.add(line1_3_2_1);
-
-    line1_1_3_1_1.setPosition(0, 38, 240, 2);
-    line1_1_3_1_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    line1_1_3_1_1.setPainter(line1_1_3_1_1Painter);
-    line1_1_3_1_1.setStart(0, 0);
-    line1_1_3_1_1.setEnd(240, 0);
-    line1_1_3_1_1.setLineWidth(10);
-    line1_1_3_1_1.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
-    line1_1_3_1_1.setVisible(false);
-    wind_speed_viewer.add(line1_1_3_1_1);
-
-    line1_1_1_2_1_1.setPosition(0, 0, 240, 2);
-    line1_1_1_2_1_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    line1_1_1_2_1_1.setPainter(line1_1_1_2_1_1Painter);
-    line1_1_1_2_1_1.setStart(0, 0);
-    line1_1_1_2_1_1.setEnd(240, 0);
-    line1_1_1_2_1_1.setLineWidth(10);
-    line1_1_1_2_1_1.setLineEndingStyle(touchgfx::Line::SQUARE_CAP_ENDING);
-    line1_1_1_2_1_1.setVisible(false);
-    wind_speed_viewer.add(line1_1_1_2_1_1);
-
-    wind_speed_value_unit.setPosition(100, 0, 72, 40);
-    wind_speed_value_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    wind_speed_value_unit.setLinespacing(0);
-    wind_speed_value_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Z33Q));
-    wind_speed_viewer.add(wind_speed_value_unit);
-
-    wind_speed_value.setPosition(0, 0, 140, 40);
-    wind_speed_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    wind_speed_value.setLinespacing(0);
-    Unicode::snprintf(wind_speed_valueBuffer, WIND_SPEED_VALUE_SIZE, "%s", touchgfx::TypedText(T_WIND_SPEED_VALUE).getText());
-    wind_speed_value.setWildcard(wind_speed_valueBuffer);
-    wind_speed_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_32K4));
-    wind_speed_viewer.add(wind_speed_value);
-
-    add(wind_speed_viewer);
-
-    efficiency_viewer.setPosition(236, 356, 320, 40);
-    efficiency_viewer.setVisible(false);
-    efficiency_value.setPosition(2, 0, 318, 40);
-    efficiency_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    efficiency_value.setLinespacing(0);
-    Unicode::snprintf(efficiency_valueBuffer, EFFICIENCY_VALUE_SIZE, "%s", touchgfx::TypedText(T_EFFICIENCY_VALUE).getText());
-    efficiency_value.setWildcard(efficiency_valueBuffer);
-    efficiency_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PGB7));
-    efficiency_viewer.add(efficiency_value);
-
-    efficiency_value_unit.setPosition(240, 0, 75, 40);
-    efficiency_value_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    efficiency_value_unit.setLinespacing(0);
-    efficiency_value_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XUVG));
-    efficiency_viewer.add(efficiency_value_unit);
-
-    add(efficiency_viewer);
-
-    pitch_viewer.setPosition(0, 340, 240, 40);
-    pitch_value_unit.setPosition(149, 0, 56, 40);
-    pitch_value_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    pitch_value_unit.setLinespacing(0);
-    pitch_value_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F6HM));
-    pitch_viewer.add(pitch_value_unit);
-
-    pitch_value.setPosition(27, 0, 180, 40);
-    pitch_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    pitch_value.setLinespacing(0);
-    Unicode::snprintf(pitch_valueBuffer, PITCH_VALUE_SIZE, "%s", touchgfx::TypedText(T_PITCH_VALUE).getText());
-    pitch_value.setWildcard(pitch_valueBuffer);
-    pitch_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_90VN));
-    pitch_viewer.add(pitch_value);
-
-    add(pitch_viewer);
-
-    wind_speed_title.setPosition(557, 302, 242, 40);
-    wind_speed_text.setPosition(0, 0, 240, 40);
-    wind_speed_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    wind_speed_text.setLinespacing(0);
-    wind_speed_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_HOP2));
-    wind_speed_title.add(wind_speed_text);
-
-    add(wind_speed_title);
-
-    efficiency_title.setPosition(236, 359, 320, 40);
-    efficiency_title.setVisible(false);
-    efficiency_text.setPosition(0, 0, 320, 40);
-    efficiency_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    efficiency_text.setLinespacing(0);
-    efficiency_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GA82));
-    efficiency_title.add(efficiency_text);
-
-    line_g_vertical_2.setPosition(0, 0, 2, 40);
-    line_g_vertical_2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    line_g_vertical_2.setPainter(line_g_vertical_2Painter);
-    line_g_vertical_2.setStart(0, 0);
-    line_g_vertical_2.setEnd(0, 40);
-    line_g_vertical_2.setLineWidth(10);
-    line_g_vertical_2.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
-    line_g_vertical_2.setVisible(false);
-    efficiency_title.add(line_g_vertical_2);
-
-    line_d_vertical_2.setPosition(318, 0, 2, 40);
-    line_d_vertical_2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    line_d_vertical_2.setPainter(line_d_vertical_2Painter);
-    line_d_vertical_2.setStart(0, 0);
-    line_d_vertical_2.setEnd(0, 40);
-    line_d_vertical_2.setLineWidth(10);
-    line_d_vertical_2.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
-    line_d_vertical_2.setVisible(false);
-    efficiency_title.add(line_d_vertical_2);
-
-    line_g_flat_2.setPosition(0, 19, 60, 2);
-    line_g_flat_2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    line_g_flat_2.setPainter(line_g_flat_2Painter);
-    line_g_flat_2.setStart(0, 0);
-    line_g_flat_2.setEnd(131, 0);
-    line_g_flat_2.setLineWidth(10);
-    line_g_flat_2.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
-    line_g_flat_2.setVisible(false);
-    efficiency_title.add(line_g_flat_2);
-
-    line_d_flat_2.setPosition(260, 19, 60, 2);
-    line_d_flat_2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    line_d_flat_2.setPainter(line_d_flat_2Painter);
-    line_d_flat_2.setStart(0, 0);
-    line_d_flat_2.setEnd(131, 0);
-    line_d_flat_2.setLineWidth(10);
-    line_d_flat_2.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
-    line_d_flat_2.setVisible(false);
-    efficiency_title.add(line_d_flat_2);
-
-    add(efficiency_title);
-
-    pitch_title.setPosition(-3, 300, 242, 40);
-    pitch_text.setPosition(0, 0, 240, 40);
-    pitch_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    pitch_text.setLinespacing(0);
-    pitch_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_57JH));
-    pitch_title.add(pitch_text);
-
-    add(pitch_title);
-
-    wind_speed_legend.setPosition(558, 205, 242, 45);
-    wind_speed_legend.setVisible(false);
-    wind_speed_legend_wind.setPosition(153, 0, 76, 42);
-    wind_speed_legend_wind.setColor(touchgfx::Color::getColorFromRGB(0, 145, 255));
-    wind_speed_legend_wind.setLinespacing(0);
-    wind_speed_legend_wind.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9W31));
-    wind_speed_legend.add(wind_speed_legend_wind);
-
-    wind_speed_legend_cmd.setPosition(92, 0, 57, 42);
-    wind_speed_legend_cmd.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    wind_speed_legend_cmd.setLinespacing(0);
-    wind_speed_legend_cmd.setTypedText(touchgfx::TypedText(T___SINGLEUSE_MGRZ));
-    wind_speed_legend.add(wind_speed_legend_cmd);
-
-    wind_speed_legend_turb.setPosition(13, 0, 76, 42);
-    wind_speed_legend_turb.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
-    wind_speed_legend_turb.setLinespacing(0);
-    wind_speed_legend_turb.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WUAQ));
-    wind_speed_legend.add(wind_speed_legend_turb);
-
-    add(wind_speed_legend);
-
-    rotor_speed_gradation.setPosition(236, 319, 320, 40);
-    rotor_speed_gradation.setVisible(false);
-    rotor_speed_min_legend.setPosition(0, 0, 56, 40);
-    rotor_speed_min_legend.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    rotor_speed_min_legend.setLinespacing(0);
-    rotor_speed_min_legend.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EF9D));
-    rotor_speed_gradation.add(rotor_speed_min_legend);
-
-    rotor_speed_max_legend.setPosition(240, 0, 75, 40);
-    rotor_speed_max_legend.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    rotor_speed_max_legend.setLinespacing(0);
-    rotor_speed_max_legend.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9OO1));
-    rotor_speed_gradation.add(rotor_speed_max_legend);
-
-    rotor_rops_cmd_value.setPosition(145, 0, 85, 40);
-    rotor_rops_cmd_value.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-    rotor_rops_cmd_value.setLinespacing(0);
-    Unicode::snprintf(rotor_rops_cmd_valueBuffer, ROTOR_ROPS_CMD_VALUE_SIZE, "%s", touchgfx::TypedText(T_ROTOR_ROPS_CMD_VALUE).getText());
-    rotor_rops_cmd_value.setWildcard(rotor_rops_cmd_valueBuffer);
-    rotor_rops_cmd_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EZPE));
-    rotor_speed_gradation.add(rotor_rops_cmd_value);
-
-    add(rotor_speed_gradation);
-
-    rotor_speed_viewer.setPosition(236, 339, 320, 40);
-    rotor_speed_value.setPosition(120, 0, 150, 40);
-    rotor_speed_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    rotor_speed_value.setLinespacing(0);
-    Unicode::snprintf(rotor_speed_valueBuffer, ROTOR_SPEED_VALUE_SIZE, "%s", touchgfx::TypedText(T_ROTOR_SPEED_VALUE).getText());
-    rotor_speed_value.setWildcard(rotor_speed_valueBuffer);
-    rotor_speed_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_YIW8));
-    rotor_speed_viewer.add(rotor_speed_value);
-
-    rotor_speed_unit.setPosition(200, 0, 75, 40);
-    rotor_speed_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    rotor_speed_unit.setLinespacing(0);
-    rotor_speed_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_W26I));
-    rotor_speed_viewer.add(rotor_speed_unit);
-
-    add(rotor_speed_viewer);
-
-    gear_ratio_viewer.setPosition(-2, 193, 240, 40);
-    gear_ratio_value.setPosition(1, 0, 240, 40);
-    gear_ratio_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    gear_ratio_value.setLinespacing(0);
-    Unicode::snprintf(gear_ratio_valueBuffer, GEAR_RATIO_VALUE_SIZE, "%s", touchgfx::TypedText(T_GEAR_RATIO_VALUE).getText());
-    gear_ratio_value.setWildcard(gear_ratio_valueBuffer);
-    gear_ratio_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WNMP));
-    gear_ratio_viewer.add(gear_ratio_value);
-
-    add(gear_ratio_viewer);
-
-    rotor_speed_title.setPosition(236, 299, 320, 40);
-    rotor_speed_text.setPosition(0, 0, 320, 40);
-    rotor_speed_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    rotor_speed_text.setLinespacing(0);
-    rotor_speed_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_3KSE));
-    rotor_speed_title.add(rotor_speed_text);
-
-    add(rotor_speed_title);
-
-    gear_ratio_title.setPosition(-2, 153, 242, 40);
-    gear_ratio_text.setPosition(0, 0, 240, 40);
-    gear_ratio_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    gear_ratio_text.setLinespacing(0);
-    gear_ratio_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UHJ5));
-    gear_ratio_title.add(gear_ratio_text);
-
-    add(gear_ratio_title);
-
-    tsr_viewer.setPosition(-2, 4, 240, 90);
-    circle1.setPosition(0, 0, 320, 160);
-    circle1.setCenter(160, 160);
-    circle1.setRadius(160);
-    circle1.setLineWidth(0);
-    circle1.setArc(0, 360);
-    circle1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    circle1.setPainter(circle1Painter);
-    circle1.setVisible(false);
-    tsr_viewer.add(circle1);
-
-    shape1.setPosition(59, 0, 200, 160);
-    shape1.setOrigin(0.0f, 0.0f);
-    shape1.setScale(1.0f, 1.0f);
-    shape1.setAngle(0.0f);
-    shape1Painter.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
-    shape1.setPainter(shape1Painter);
-    const touchgfx::AbstractShape::ShapePoint<float> shape1Points[6] = { { 100.0f, 5.0f }, { 150.0f, 15.0f }, { 200.0f, 45.0f }, { 100.0f, 160.0f }, { 0.0f, 45.0f }, { 50.0f, 15.0f } };
-    shape1.setShape(shape1Points);
-    shape1.setVisible(false);
-    tsr_viewer.add(shape1);
-
-    tsr_value.setPosition(60, 50, 120, 50);
-    tsr_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    tsr_value.setLinespacing(0);
-    Unicode::snprintf(tsr_valueBuffer, TSR_VALUE_SIZE, "%s", touchgfx::TypedText(T_TSR_VALUE).getText());
-    tsr_value.setWildcard(tsr_valueBuffer);
-    tsr_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_LSVJ));
-    tsr_viewer.add(tsr_value);
-
-    add(tsr_viewer);
-
-    speed_viewer.setPosition(240, 40, 305, 200);
-    circle2.setPosition(0, 0, 240, 120);
-    circle2.setCenter(120, 120);
-    circle2.setRadius(120);
-    circle2.setLineWidth(0);
-    circle2.setArc(0, 360);
-    circle2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    circle2.setPainter(circle2Painter);
-    circle2.setVisible(false);
-    speed_viewer.add(circle2);
-
-    speed_value_unit.setPosition(120, 110, 56, 40);
-    speed_value_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    speed_value_unit.setLinespacing(0);
-    speed_value_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_NCUI));
-    speed_viewer.add(speed_value_unit);
-
-    speed_value.setPosition(-18, 31, 330, 122);
-    speed_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    speed_value.setLinespacing(0);
-    Unicode::snprintf(speed_valueBuffer, SPEED_VALUE_SIZE, "%s", touchgfx::TypedText(T_SPEED_VALUE).getText());
-    speed_value.setWildcard(speed_valueBuffer);
-    speed_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XL1B));
-    speed_viewer.add(speed_value);
-
-    add(speed_viewer);
-
-    direction_viewer.setPosition(558, 28, 240, 195);
-    direction_unit_wind.setPosition(204, -6, 19, 38);
-    direction_unit_wind.setColor(touchgfx::Color::getColorFromRGB(0, 145, 255));
-    direction_unit_wind.setLinespacing(0);
-    direction_unit_wind.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6SKF));
-    direction_viewer.add(direction_unit_wind);
-
-    direction_unit_mast.setPosition(204, 156, 19, 38);
-    direction_unit_mast.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
-    direction_unit_mast.setLinespacing(0);
-    direction_unit_mast.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Z2SD));
-    direction_viewer.add(direction_unit_mast);
-
-    direction_title_mast.setPosition(-1, 157, 80, 37);
-    direction_title_mast.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
-    direction_title_mast.setLinespacing(0);
-    direction_title_mast.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IX89));
-    direction_viewer.add(direction_title_mast);
-
-    direction_title_wind.setPosition(-8, -6, 93, 38);
-    direction_title_wind.setColor(touchgfx::Color::getColorFromRGB(0, 145, 255));
-    direction_title_wind.setLinespacing(0);
-    direction_title_wind.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CUJ5));
-    direction_viewer.add(direction_title_wind);
-
-    wind_dir_value.setPosition(79, -6, 125, 38);
-    wind_dir_value.setColor(touchgfx::Color::getColorFromRGB(0, 145, 255));
-    wind_dir_value.setLinespacing(0);
-    Unicode::snprintf(wind_dir_valueBuffer, WIND_DIR_VALUE_SIZE, "%s", touchgfx::TypedText(T_WIND_DIR_VALUE).getText());
-    wind_dir_value.setWildcard(wind_dir_valueBuffer);
-    wind_dir_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WEXC));
-    direction_viewer.add(wind_dir_value);
-
-    turb_dir_value.setPosition(79, 157, 125, 37);
-    turb_dir_value.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
-    turb_dir_value.setLinespacing(0);
-    Unicode::snprintf(turb_dir_valueBuffer, TURB_DIR_VALUE_SIZE, "%s", touchgfx::TypedText(T_TURB_DIR_VALUE).getText());
-    turb_dir_value.setWildcard(turb_dir_valueBuffer);
-    turb_dir_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0Q4R));
-    direction_viewer.add(turb_dir_value);
-
-    add(direction_viewer);
-
-    speed_title.setPosition(274, 10, 242, 40);
-    speed_text.setPosition(0, 0, 240, 40);
-    speed_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    speed_text.setLinespacing(0);
-    speed_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ZLWZ));
-    speed_title.add(speed_text);
-
-    add(speed_title);
-
-    direction_title.setPosition(558, 10, 242, 40);
-    direction_title.setVisible(false);
-    direction_text.setPosition(-1, -10, 240, 40);
-    direction_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    direction_text.setLinespacing(0);
-    direction_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F7YL));
-    direction_title.add(direction_text);
-
-    add(direction_title);
-
-    tsr_title.setPosition(-2, 4, 240, 50);
-    tsr_text.setPosition(80, 10, 80, 40);
-    tsr_text.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    tsr_text.setLinespacing(0);
-    tsr_text.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0D8N));
-    tsr_title.add(tsr_text);
-
-    add(tsr_title);
-
-    chinook_title.setPosition(12, 422, 240, 50);
-    chinook.setPosition(0, 0, 240, 50);
-    chinook.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    chinook.setLinespacing(0);
-    chinook.setTypedText(touchgfx::TypedText(T___SINGLEUSE_MO2P));
-    chinook_title.add(chinook);
-
-    add(chinook_title);
-
     white_lines.setPosition(0, 0, 800, 480);
-    line2.setPosition(229, 0, 19, 480);
+    line2.setPosition(229, 0, 20, 480);
     line2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     line2.setPainter(line2Painter);
     line2.setStart(10, 0);
@@ -473,7 +41,7 @@ UI_page1ViewBase::UI_page1ViewBase()
     line2_1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     white_lines.add(line2_1);
 
-    line3.setPosition(0, 109, 240, 20);
+    line3.setPosition(0, 130, 240, 20);
     line3Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     line3.setPainter(line3Painter);
     line3.setStart(0, 10);
@@ -482,7 +50,7 @@ UI_page1ViewBase::UI_page1ViewBase()
     line3.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     white_lines.add(line3);
 
-    line3_2.setPosition(2, 400, 798, 20);
+    line3_2.setPosition(0, 411, 800, 20);
     line3_2Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     line3_2.setPainter(line3_2Painter);
     line3_2.setStart(0, 10);
@@ -491,7 +59,7 @@ UI_page1ViewBase::UI_page1ViewBase()
     line3_2.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     white_lines.add(line3_2);
 
-    line3_2_1.setPosition(1, 266, 798, 20);
+    line3_2_1.setPosition(0, 270, 240, 20);
     line3_2_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     line3_2_1.setPainter(line3_2_1Painter);
     line3_2_1.setStart(0, 10);
@@ -500,18 +68,232 @@ UI_page1ViewBase::UI_page1ViewBase()
     line3_2_1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
     white_lines.add(line3_2_1);
 
+    line3_2_1_1.setPosition(550, 270, 250, 20);
+    line3_2_1_1Painter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    line3_2_1_1.setPainter(line3_2_1_1Painter);
+    line3_2_1_1.setStart(0, 10);
+    line3_2_1_1.setEnd(800, 10);
+    line3_2_1_1.setLineWidth(3);
+    line3_2_1_1.setLineEndingStyle(touchgfx::Line::ROUND_CAP_ENDING);
+    white_lines.add(line3_2_1_1);
+
     add(white_lines);
 
+    wind_speed.setPosition(550, 280, 250, 140);
+    wind_unit.setPosition(134, 67, 61, 40);
+    wind_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    wind_unit.setLinespacing(0);
+    wind_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Z33Q));
+    wind_speed.add(wind_unit);
+
+    wind_value.setPosition(59, 67, 75, 40);
+    wind_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    wind_value.setLinespacing(0);
+    Unicode::snprintf(wind_valueBuffer, WIND_VALUE_SIZE, "%s", touchgfx::TypedText(T_WIND_SPEED_VALUE).getText());
+    wind_value.setWildcard(wind_valueBuffer);
+    wind_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_32K4));
+    wind_speed.add(wind_value);
+
+    wind_title.setPosition(28, 27, 200, 40);
+    wind_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    wind_title.setLinespacing(0);
+    wind_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CIFT));
+    wind_speed.add(wind_title);
+
+    add(wind_speed);
+
+    direction_wind_turb.setPosition(550, 0, 250, 280);
+    turb_dir_unit.setPosition(220, 210, 20, 40);
+    turb_dir_unit.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
+    turb_dir_unit.setLinespacing(0);
+    turb_dir_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Z2SD));
+    direction_wind_turb.add(turb_dir_unit);
+
+    turb_dir_value.setPosition(100, 210, 120, 40);
+    turb_dir_value.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
+    turb_dir_value.setLinespacing(0);
+    Unicode::snprintf(turb_dir_valueBuffer, TURB_DIR_VALUE_SIZE, "%s", touchgfx::TypedText(T_TURB_DIR_VALUE).getText());
+    turb_dir_value.setWildcard(turb_dir_valueBuffer);
+    turb_dir_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0Q4R));
+    direction_wind_turb.add(turb_dir_value);
+
+    turb_dir_title.setPosition(0, 210, 100, 40);
+    turb_dir_title.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
+    turb_dir_title.setLinespacing(0);
+    turb_dir_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IX89));
+    direction_wind_turb.add(turb_dir_title);
+
     gauge1.setBackground(touchgfx::Bitmap(BITMAP_DEMI_ID));
-    gauge1.setPosition(556, 66, 240, 119);
+    gauge1.setPosition(5, 90, 240, 120);
     gauge1.setCenter(120, 120);
-    gauge1.setStartEndAngle(-113, 112);
-    gauge1.setRange(0, 100);
-    gauge1.setValue(50);
-    gauge1.setNeedle(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_MEDIUM_NEEDLES_SMOOTH_ID, 7, 67);
+    gauge1.setStartEndAngle(-90, 90);
+    gauge1.setRange(0, 180);
+    gauge1.setValue(90);
+    gauge1.setNeedle(BITMAP_NEEDLE1_ID, 20, 110);
     gauge1.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
     gauge1.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
-    add(gauge1);
+    direction_wind_turb.add(gauge1);
+
+    wind_dir_unit.setPosition(220, 50, 20, 40);
+    wind_dir_unit.setColor(touchgfx::Color::getColorFromRGB(56, 182, 255));
+    wind_dir_unit.setLinespacing(0);
+    wind_dir_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_6SKF));
+    direction_wind_turb.add(wind_dir_unit);
+
+    wind_dir_value.setPosition(100, 50, 120, 40);
+    wind_dir_value.setColor(touchgfx::Color::getColorFromRGB(56, 182, 255));
+    wind_dir_value.setLinespacing(0);
+    Unicode::snprintf(wind_dir_valueBuffer, WIND_DIR_VALUE_SIZE, "%s", touchgfx::TypedText(T_WIND_DIR_VALUE).getText());
+    wind_dir_value.setWildcard(wind_dir_valueBuffer);
+    wind_dir_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_WEXC));
+    direction_wind_turb.add(wind_dir_value);
+
+    wind_dir_title.setPosition(0, 50, 100, 40);
+    wind_dir_title.setColor(touchgfx::Color::getColorFromRGB(56, 182, 255));
+    wind_dir_title.setLinespacing(0);
+    wind_dir_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_CUJ5));
+    direction_wind_turb.add(wind_dir_title);
+
+    direction_title.setPosition(0, 0, 250, 40);
+    direction_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    direction_title.setLinespacing(0);
+    direction_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F7YL));
+    direction_wind_turb.add(direction_title);
+
+    add(direction_wind_turb);
+
+    speed.setPosition(240, 119, 310, 200);
+    speed_unit.setPosition(132, 139, 56, 40);
+    speed_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    speed_unit.setLinespacing(0);
+    speed_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_NCUI));
+    speed.add(speed_unit);
+
+    speed_value.setPosition(0, 56, 310, 83);
+    speed_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    speed_value.setLinespacing(0);
+    Unicode::snprintf(speed_valueBuffer, SPEED_VALUE_SIZE, "%s", touchgfx::TypedText(T_SPEED_VALUE).getText());
+    speed_value.setWildcard(speed_valueBuffer);
+    speed_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XL1B));
+    speed.add(speed_value);
+
+    speed_title.setPosition(0, 30, 310, 40);
+    speed_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    speed_title.setLinespacing(0);
+    speed_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_ZLWZ));
+    speed.add(speed_title);
+
+    add(speed);
+
+    gear.setPosition(0, 141, 238, 137);
+    gear_value.setPosition(76, 35, 88, 80);
+    gear_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    gear_value.setLinespacing(0);
+    gear_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GEXS));
+    gear.add(gear_value);
+
+    gear_title.setPosition(0, 13, 240, 40);
+    gear_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    gear_title.setLinespacing(0);
+    gear_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_1X4M));
+    gear.add(gear_title);
+
+    add(gear);
+
+    efficiency.setPosition(0, 0, 238, 141);
+    efficiency_value.setPosition(81, 70, 60, 40);
+    efficiency_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    efficiency_value.setLinespacing(0);
+    Unicode::snprintf(efficiency_valueBuffer, EFFICIENCY_VALUE_SIZE, "%s", touchgfx::TypedText(T_EFFICIENCY_VALUE).getText());
+    efficiency_value.setWildcard(efficiency_valueBuffer);
+    efficiency_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PGB7));
+    efficiency.add(efficiency_value);
+
+    efficiency_unit.setPosition(141, 70, 20, 40);
+    efficiency_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    efficiency_unit.setLinespacing(0);
+    efficiency_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XUVG));
+    efficiency.add(efficiency_unit);
+
+    efficiency_title.setXY(25, 28);
+    efficiency_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    efficiency_title.setLinespacing(0);
+    efficiency_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_1C0R));
+    efficiency.add(efficiency_title);
+
+    add(efficiency);
+
+    pitch.setPosition(0, 280, 240, 140);
+    pitch_unit.setPosition(188, 69, 20, 40);
+    pitch_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    pitch_unit.setLinespacing(0);
+    pitch_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F6HM));
+    pitch.add(pitch_unit);
+
+    pitch_value.setPosition(52, 69, 136, 40);
+    pitch_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    pitch_value.setLinespacing(0);
+    Unicode::snprintf(pitch_valueBuffer, PITCH_VALUE_SIZE, "%s", touchgfx::TypedText(T_PITCH_VALUE).getText());
+    pitch_value.setWildcard(pitch_valueBuffer);
+    pitch_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_90VN));
+    pitch.add(pitch_value);
+
+    pitch_title.setPosition(0, 27, 240, 42);
+    pitch_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    pitch_title.setLinespacing(0);
+    pitch_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_57JH));
+    pitch.add(pitch_title);
+
+    add(pitch);
+
+    fps.setPosition(550, 428, 250, 50);
+    fps_counter_value.setPosition(77, 0, 38, 42);
+    fps_counter_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    fps_counter_value.setLinespacing(0);
+    Unicode::snprintf(fps_counter_valueBuffer, FPS_COUNTER_VALUE_SIZE, "%s", touchgfx::TypedText(T_FPS_COUNTER_VALUE).getText());
+    fps_counter_value.setWildcard(fps_counter_valueBuffer);
+    fps_counter_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_RIB5));
+    fps.add(fps_counter_value);
+
+    fps_counter.setPosition(121, 0, 57, 42);
+    fps_counter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    fps_counter.setLinespacing(0);
+    fps_counter.setTypedText(touchgfx::TypedText(T___SINGLEUSE_TVWU));
+    fps.add(fps_counter);
+
+    add(fps);
+
+    batterie.setPosition(240, 428, 310, 45);
+    batterie_unit.setPosition(265, 0, 20, 40);
+    batterie_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    batterie_unit.setLinespacing(0);
+    batterie_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F3RA));
+    batterie.add(batterie_unit);
+
+    batterie_value.setPosition(205, 0, 60, 40);
+    batterie_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    batterie_value.setLinespacing(0);
+    Unicode::snprintf(batterie_valueBuffer, BATTERIE_VALUE_SIZE, "%s", touchgfx::TypedText(T_EFFICIENCY_VALUE).getText());
+    batterie_value.setWildcard(batterie_valueBuffer);
+    batterie_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_V1IT));
+    batterie.add(batterie_value);
+
+    batterie_title.setPosition(0, 0, 205, 40);
+    batterie_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    batterie_title.setLinespacing(0);
+    batterie_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_1QM2));
+    batterie.add(batterie_title);
+
+    add(batterie);
+
+    chinook_title.setPosition(15, 428, 210, 45);
+    chinook.setPosition(0, 0, 210, 44);
+    chinook.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    chinook.setLinespacing(0);
+    chinook.setTypedText(touchgfx::TypedText(T___SINGLEUSE_MO2P));
+    chinook_title.add(chinook);
+
+    add(chinook_title);
 }
 
 UI_page1ViewBase::~UI_page1ViewBase()

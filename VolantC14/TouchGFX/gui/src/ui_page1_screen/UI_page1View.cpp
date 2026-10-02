@@ -46,28 +46,19 @@ void UI_page1View::update_wind_dir_value(float wind_dir_value_temps)
 	Unicode::snprintfFloat(wind_dir_valueBuffer, WIND_DIR_VALUE_SIZE, "%.1f", wind_dir_value_temps);
 	wind_dir_value.invalidate();
 
-	/* ===== GAUGE DU VENT TEMPORAIREMENT DESACTIVEE =====
-	 * gauge1 a ete retire du Designer, donc il n'existe plus dans
-	 * UI_page1ViewBase et le code ci-dessous ne compile plus.
-	 * Bloc commente pour que le simulateur (et la carte) compilent sans les
-	 * gauges. >>> A DECOMMENTER quand gauge1 sera reajoute dans le Designer. <<<
-	 *
-	 * Aiguille de l'orientation du vent (gauge1, needle1).
-	 * Mario envoie le vent dans la plage -180..+180 deg.
-	 * gauge1 est configure dans le Designer avec la plage 0..180 et les
-	 * angles -90..+90. On compresse donc le vent (-180..+180) sur la
-	 * course de l'aiguille (-90..+90) :
+	/* Aiguille de l'orientation du vent (gauge1, needle1).
+	 * Mario envoie le vent dans la plage -180..+180 deg ; gauge1 est configure
+	 * (Designer) avec la plage 0..180 et les angles -90..+90. On compresse donc
+	 * le vent (-180..+180) sur la course de l'aiguille (-90..+90) :
 	 *     valeur_gauge = vent / 2 + 90
 	 *   vent = -180 -> 0   (aiguille a -90 deg)
 	 *   vent =    0 -> 90  (aiguille a   0 deg)
 	 *   vent = +180 -> 180 (aiguille a +90 deg)
-	 * 2e argument de updateValue = duree d'animation en ticks (0 = instantane).
-	 *
-	 * float wind_gauge = wind_dir_value_temps / 2.0f + 90.0f;
-	 * if (wind_gauge < 0.0f)   wind_gauge = 0.0f;
-	 * if (wind_gauge > 180.0f) wind_gauge = 180.0f;
-	 * gauge1.updateValue((int)(wind_gauge + 0.5f), 0);
-	 */
+	 * 2e arg de updateValue = duree d'animation en ticks (0 = instantane). */
+	float wind_gauge = wind_dir_value_temps / 2.0f + 90.0f;
+	if (wind_gauge < 0.0f)   wind_gauge = 0.0f;
+	if (wind_gauge > 180.0f) wind_gauge = 180.0f;
+	gauge1.updateValue((int)(wind_gauge + 0.5f), 0);
 }
 
 void UI_page1View::update_speed_value(float speed_value_temps)
@@ -76,28 +67,29 @@ void UI_page1View::update_speed_value(float speed_value_temps)
 	speed_value.invalidate();
 }
 
+/* NOTE (UI C14) : les widgets tsr_value, gear_ratio_value, rotor_speed_value,
+ * rotor_rops_cmd_value, wind_speed_value et pitch_cmd_value ont ete retires de
+ * la page 1 lors du redesign C14. Ils n'existent plus dans UI_page1ViewBase.
+ * Ces fonctions sont donc en no-op pour que le projet compile. Le Presenter
+ * continue de les appeler sans effet. A recabler si on recree ces widgets. */
 void UI_page1View::update_tsr_value(float tsr_value_temps)
 {
-	Unicode::snprintfFloat(tsr_valueBuffer, TSR_VALUE_SIZE, "%.2f", tsr_value_temps);
-	tsr_value.invalidate();
+	(void)tsr_value_temps;
 }
 
 void UI_page1View::update_gear_ratio_value(float gear_ratio_value_temps)
 {
-	Unicode::snprintfFloat(gear_ratio_valueBuffer, GEAR_RATIO_VALUE_SIZE, "%.1f", gear_ratio_value_temps);
-	gear_ratio_value.invalidate();
+	(void)gear_ratio_value_temps;
 }
 
 void UI_page1View::update_rotor_speed_value(float rotor_speed_value_temps)
 {
-	Unicode::snprintfFloat(rotor_speed_valueBuffer, ROTOR_SPEED_VALUE_SIZE, "%.0f", rotor_speed_value_temps);
-	rotor_speed_value.invalidate();
+	(void)rotor_speed_value_temps;
 }
 
 void UI_page1View::update_rotor_rops_cmd_value(float rotor_rops_cmd_value_temps)
 {
-	Unicode::snprintfFloat(rotor_rops_cmd_valueBuffer, ROTOR_ROPS_CMD_VALUE_SIZE, "%.0f", rotor_rops_cmd_value_temps);
-	rotor_rops_cmd_value.invalidate();
+	(void)rotor_rops_cmd_value_temps;
 }
 
 void UI_page1View::update_pitch_value(float pitch_value_temps)
@@ -108,20 +100,22 @@ void UI_page1View::update_pitch_value(float pitch_value_temps)
 
 void UI_page1View::update_efficiency_value(float efficiency_value_temps)
 {
-	Unicode::snprintfFloat(efficiency_valueBuffer, EFFICIENCY_VALUE_SIZE, "%.2f", efficiency_value_temps);
+	/* Affichage sans decimale (valeurs 0..150). "%.0f" arrondit a l'entier. */
+	Unicode::snprintfFloat(efficiency_valueBuffer, EFFICIENCY_VALUE_SIZE, "%.0f", efficiency_value_temps);
 	efficiency_value.invalidate();
 }
 
 void UI_page1View::update_wind_speed_value(float wind_speed_value_temps)
 {
-	Unicode::snprintfFloat(wind_speed_valueBuffer, WIND_SPEED_VALUE_SIZE, "%.1f", wind_speed_value_temps);
-	wind_speed_value.invalidate();
+	/* Vitesse du vent (CAN 0x4A, calculee par ReadWeatherStation() cote Mario)
+	 * affichee dans le widget wind_value de la page 1 (UI C14). */
+	Unicode::snprintfFloat(wind_valueBuffer, WIND_VALUE_SIZE, "%.1f", wind_speed_value_temps);
+	wind_value.invalidate();
 }
 
 void UI_page1View::update_pitch_cmd_value(float pitch_cmd_value_temps)
 {
-	Unicode::snprintfFloat(pitch_cmd_valueBuffer, PITCH_CMD_VALUE_SIZE, "%.3f", pitch_cmd_value_temps);
-	pitch_cmd_value.invalidate();
+	(void)pitch_cmd_value_temps;    // widget retire (UI C14)
 }
 
 void UI_page1View::update_debug_log_1_value(float debug_log_1_value_temps)

@@ -8,13 +8,11 @@
 #include <mvp/View.hpp>
 #include <gui/ui_page1_screen/UI_page1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/canvas/Shape.hpp>
-#include <touchgfx/widgets/canvas/PainterRGB888.hpp>
-#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
-#include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/canvas/Line.hpp>
-#include <touchgfx/widgets/canvas/Circle.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB888.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/Gauge.hpp>
 
 class UI_page1ViewBase : public touchgfx::View<UI_page1Presenter>
@@ -43,88 +41,8 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Shape<4> background;
-    touchgfx::PainterRGB888 backgroundPainter;
-    touchgfx::TextAreaWithOneWildcard fps_counter_value;
-    touchgfx::TextArea fps_counter;
-    touchgfx::Container efficiency_bar_gradation;
-    touchgfx::TextArea efficiency_min_legend;
-    touchgfx::TextArea efficiency_max_legend;
-    touchgfx::TextArea efficiency_up_legend;
-    touchgfx::Container pitch_cmd_viewer;
-    touchgfx::TextAreaWithOneWildcard pitch_cmd_value;
-    touchgfx::Container wind_speed_viewer;
-    touchgfx::Line line1_3_2_1;
-    touchgfx::PainterRGB888 line1_3_2_1Painter;
-    touchgfx::Line line1_1_3_1_1;
-    touchgfx::PainterRGB888 line1_1_3_1_1Painter;
-    touchgfx::Line line1_1_1_2_1_1;
-    touchgfx::PainterRGB888 line1_1_1_2_1_1Painter;
-    touchgfx::TextArea wind_speed_value_unit;
-    touchgfx::TextAreaWithOneWildcard wind_speed_value;
-    touchgfx::Container efficiency_viewer;
-    touchgfx::TextAreaWithOneWildcard efficiency_value;
-    touchgfx::TextArea efficiency_value_unit;
-    touchgfx::Container pitch_viewer;
-    touchgfx::TextArea pitch_value_unit;
-    touchgfx::TextAreaWithOneWildcard pitch_value;
-    touchgfx::Container wind_speed_title;
-    touchgfx::TextArea wind_speed_text;
-    touchgfx::Container efficiency_title;
-    touchgfx::TextArea efficiency_text;
-    touchgfx::Line line_g_vertical_2;
-    touchgfx::PainterRGB888 line_g_vertical_2Painter;
-    touchgfx::Line line_d_vertical_2;
-    touchgfx::PainterRGB888 line_d_vertical_2Painter;
-    touchgfx::Line line_g_flat_2;
-    touchgfx::PainterRGB888 line_g_flat_2Painter;
-    touchgfx::Line line_d_flat_2;
-    touchgfx::PainterRGB888 line_d_flat_2Painter;
-    touchgfx::Container pitch_title;
-    touchgfx::TextArea pitch_text;
-    touchgfx::Container wind_speed_legend;
-    touchgfx::TextArea wind_speed_legend_wind;
-    touchgfx::TextArea wind_speed_legend_cmd;
-    touchgfx::TextArea wind_speed_legend_turb;
-    touchgfx::Container rotor_speed_gradation;
-    touchgfx::TextArea rotor_speed_min_legend;
-    touchgfx::TextArea rotor_speed_max_legend;
-    touchgfx::TextAreaWithOneWildcard rotor_rops_cmd_value;
-    touchgfx::Container rotor_speed_viewer;
-    touchgfx::TextAreaWithOneWildcard rotor_speed_value;
-    touchgfx::TextArea rotor_speed_unit;
-    touchgfx::Container gear_ratio_viewer;
-    touchgfx::TextAreaWithOneWildcard gear_ratio_value;
-    touchgfx::Container rotor_speed_title;
-    touchgfx::TextArea rotor_speed_text;
-    touchgfx::Container gear_ratio_title;
-    touchgfx::TextArea gear_ratio_text;
-    touchgfx::Container tsr_viewer;
-    touchgfx::Circle circle1;
-    touchgfx::PainterRGB888 circle1Painter;
-    touchgfx::Shape<6> shape1;
-    touchgfx::PainterRGB888 shape1Painter;
-    touchgfx::TextAreaWithOneWildcard tsr_value;
-    touchgfx::Container speed_viewer;
-    touchgfx::Circle circle2;
-    touchgfx::PainterRGB888 circle2Painter;
-    touchgfx::TextArea speed_value_unit;
-    touchgfx::TextAreaWithOneWildcard speed_value;
-    touchgfx::Container direction_viewer;
-    touchgfx::TextArea direction_unit_wind;
-    touchgfx::TextArea direction_unit_mast;
-    touchgfx::TextArea direction_title_mast;
-    touchgfx::TextArea direction_title_wind;
-    touchgfx::TextAreaWithOneWildcard wind_dir_value;
-    touchgfx::TextAreaWithOneWildcard turb_dir_value;
-    touchgfx::Container speed_title;
-    touchgfx::TextArea speed_text;
-    touchgfx::Container direction_title;
-    touchgfx::TextArea direction_text;
-    touchgfx::Container tsr_title;
-    touchgfx::TextArea tsr_text;
-    touchgfx::Container chinook_title;
-    touchgfx::TextArea chinook;
+    touchgfx::Container background;
+    touchgfx::Box black_background;
     touchgfx::Container white_lines;
     touchgfx::Line line2;
     touchgfx::PainterRGB888 line2Painter;
@@ -136,35 +54,65 @@ protected:
     touchgfx::PainterRGB888 line3_2Painter;
     touchgfx::Line line3_2_1;
     touchgfx::PainterRGB888 line3_2_1Painter;
+    touchgfx::Line line3_2_1_1;
+    touchgfx::PainterRGB888 line3_2_1_1Painter;
+    touchgfx::Container wind_speed;
+    touchgfx::TextArea wind_unit;
+    touchgfx::TextAreaWithOneWildcard wind_value;
+    touchgfx::TextArea wind_title;
+    touchgfx::Container direction_wind_turb;
+    touchgfx::TextArea turb_dir_unit;
+    touchgfx::TextAreaWithOneWildcard turb_dir_value;
+    touchgfx::TextArea turb_dir_title;
     touchgfx::Gauge gauge1;
+    touchgfx::TextArea wind_dir_unit;
+    touchgfx::TextAreaWithOneWildcard wind_dir_value;
+    touchgfx::TextArea wind_dir_title;
+    touchgfx::TextArea direction_title;
+    touchgfx::Container speed;
+    touchgfx::TextArea speed_unit;
+    touchgfx::TextAreaWithOneWildcard speed_value;
+    touchgfx::TextArea speed_title;
+    touchgfx::Container gear;
+    touchgfx::TextArea gear_value;
+    touchgfx::TextArea gear_title;
+    touchgfx::Container efficiency;
+    touchgfx::TextAreaWithOneWildcard efficiency_value;
+    touchgfx::TextArea efficiency_unit;
+    touchgfx::TextArea efficiency_title;
+    touchgfx::Container pitch;
+    touchgfx::TextArea pitch_unit;
+    touchgfx::TextAreaWithOneWildcard pitch_value;
+    touchgfx::TextArea pitch_title;
+    touchgfx::Container fps;
+    touchgfx::TextAreaWithOneWildcard fps_counter_value;
+    touchgfx::TextArea fps_counter;
+    touchgfx::Container batterie;
+    touchgfx::TextArea batterie_unit;
+    touchgfx::TextAreaWithOneWildcard batterie_value;
+    touchgfx::TextArea batterie_title;
+    touchgfx::Container chinook_title;
+    touchgfx::TextArea chinook;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t FPS_COUNTER_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar fps_counter_valueBuffer[FPS_COUNTER_VALUE_SIZE];
-    static const uint16_t PITCH_CMD_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar pitch_cmd_valueBuffer[PITCH_CMD_VALUE_SIZE];
-    static const uint16_t WIND_SPEED_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar wind_speed_valueBuffer[WIND_SPEED_VALUE_SIZE];
+    static const uint16_t WIND_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar wind_valueBuffer[WIND_VALUE_SIZE];
+    static const uint16_t TURB_DIR_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar turb_dir_valueBuffer[TURB_DIR_VALUE_SIZE];
+    static const uint16_t WIND_DIR_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar wind_dir_valueBuffer[WIND_DIR_VALUE_SIZE];
+    static const uint16_t SPEED_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar speed_valueBuffer[SPEED_VALUE_SIZE];
     static const uint16_t EFFICIENCY_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar efficiency_valueBuffer[EFFICIENCY_VALUE_SIZE];
     static const uint16_t PITCH_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar pitch_valueBuffer[PITCH_VALUE_SIZE];
-    static const uint16_t ROTOR_ROPS_CMD_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar rotor_rops_cmd_valueBuffer[ROTOR_ROPS_CMD_VALUE_SIZE];
-    static const uint16_t ROTOR_SPEED_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar rotor_speed_valueBuffer[ROTOR_SPEED_VALUE_SIZE];
-    static const uint16_t GEAR_RATIO_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar gear_ratio_valueBuffer[GEAR_RATIO_VALUE_SIZE];
-    static const uint16_t TSR_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar tsr_valueBuffer[TSR_VALUE_SIZE];
-    static const uint16_t SPEED_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar speed_valueBuffer[SPEED_VALUE_SIZE];
-    static const uint16_t WIND_DIR_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar wind_dir_valueBuffer[WIND_DIR_VALUE_SIZE];
-    static const uint16_t TURB_DIR_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar turb_dir_valueBuffer[TURB_DIR_VALUE_SIZE];
+    static const uint16_t FPS_COUNTER_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar fps_counter_valueBuffer[FPS_COUNTER_VALUE_SIZE];
+    static const uint16_t BATTERIE_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar batterie_valueBuffer[BATTERIE_VALUE_SIZE];
 
 private:
 

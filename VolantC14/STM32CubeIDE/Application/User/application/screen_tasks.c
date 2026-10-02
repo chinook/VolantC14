@@ -192,7 +192,7 @@ void screen1_task(void* arg)
 			timer7_1ms_flag = 0;
 
 			//keep it it's magic but it doesn't work without it : the more you add osMessageQueuePut the less the refresh rate is. One is 500FPS
-			volatile uint8_t buf = POWER_FLAG;
+			uint8_t buf = POWER_FLAG;
 			osMessageQueuePut(screen1_pres_queue, &buf, 0, 2);
 
 			if(timer7_1ms_counter % 4 == 0) {

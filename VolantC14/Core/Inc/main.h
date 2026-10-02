@@ -54,7 +54,7 @@ extern volatile uint16_t timer7_1ms_counter;
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+void SendCAN(uint8_t id, uint8_t* data);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
