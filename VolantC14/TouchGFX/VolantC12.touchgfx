@@ -441,6 +441,11 @@
                   "Red": 255,
                   "Green": 255,
                   "Blue": 255
+                },
+                "Wildcard1": {
+                  "TextId": "current_gear",
+                  "UseBuffer": true,
+                  "BufferSize": 15
                 }
               },
               {

@@ -6,8 +6,11 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
-      <Text Id="__SingleUse_GEXS" Alignment="Center" TypographyId="Typography_00">
+      <Text Id="current_gear" Alignment="Left" TypographyId="Typography_00">
         <Translation Language="GB">12</Translation>
+      </Text>
+      <Text Id="__SingleUse_GEXS" Alignment="Center" TypographyId="Typography_00">
+        <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_1X4M" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">GEAR</Translation>
@@ -156,7 +159,7 @@
       <Text Id="wind_speed_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">12</Translation>
       </Text>
-      <Text Id="efficiency_value" Alignment="Left" TypographyId="Default">
+      <Text Id="efficiency_value" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="pitch_value" Alignment="Left" TypographyId="Default">
@@ -222,7 +225,7 @@
       <Text Id="__SingleUse_F6HM" Alignment="Right" TypographyId="Default">
         <Translation Language="GB">°</Translation>
       </Text>
-      <Text Id="__SingleUse_PGB7" Alignment="Left" TypographyId="Default">
+      <Text Id="__SingleUse_PGB7" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">&lt;0&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_XUVG" Alignment="Right" TypographyId="Default">

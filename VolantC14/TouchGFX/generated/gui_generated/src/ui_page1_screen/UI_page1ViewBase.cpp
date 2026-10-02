@@ -189,6 +189,8 @@ UI_page1ViewBase::UI_page1ViewBase()
     gear_value.setPosition(76, 35, 88, 80);
     gear_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     gear_value.setLinespacing(0);
+    Unicode::snprintf(gear_valueBuffer, GEAR_VALUE_SIZE, "%s", touchgfx::TypedText(T_CURRENT_GEAR).getText());
+    gear_value.setWildcard(gear_valueBuffer);
     gear_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GEXS));
     gear.add(gear_value);
 

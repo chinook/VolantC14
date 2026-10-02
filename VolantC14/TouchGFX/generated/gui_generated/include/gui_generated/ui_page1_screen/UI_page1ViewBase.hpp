@@ -74,7 +74,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard speed_value;
     touchgfx::TextArea speed_title;
     touchgfx::Container gear;
-    touchgfx::TextArea gear_value;
+    touchgfx::TextAreaWithOneWildcard gear_value;
     touchgfx::TextArea gear_title;
     touchgfx::Container efficiency;
     touchgfx::TextAreaWithOneWildcard efficiency_value;
@@ -105,6 +105,8 @@ protected:
     touchgfx::Unicode::UnicodeChar wind_dir_valueBuffer[WIND_DIR_VALUE_SIZE];
     static const uint16_t SPEED_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar speed_valueBuffer[SPEED_VALUE_SIZE];
+    static const uint16_t GEAR_VALUE_SIZE = 15;
+    touchgfx::Unicode::UnicodeChar gear_valueBuffer[GEAR_VALUE_SIZE];
     static const uint16_t EFFICIENCY_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar efficiency_valueBuffer[EFFICIENCY_VALUE_SIZE];
     static const uint16_t PITCH_VALUE_SIZE = 10;

@@ -12,6 +12,9 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
+    // Simulateur : la barre d'espace bascule vers l'ecran 2 (voir .cpp, #ifdef SIMULATOR)
+    virtual void handleKeyEvent(uint8_t key);
+
     //TouchGFX_4_23_2_tutorial_after_generating_code_step_2 : add a function like update_change_the_name
     virtual void change_screen(uint8_t screen);
     virtual void update_turb_dir_value(float turb_dir_value);

@@ -1,4 +1,6 @@
 #include <gui/ui_page2_screen/UI_page2View.hpp>
+#include <gui/common/FrontendApplication.hpp>
+#include <touchgfx/Application.hpp>
 
 UI_page2View::UI_page2View()
 {
@@ -18,6 +20,20 @@ void UI_page2View::tearDownScreen()
 void UI_page2View::change_screen(uint8_t screen)
 {
 	UI_page2ViewBase::handleKeyEvent(screen);
+}
+
+void UI_page2View::handleKeyEvent(uint8_t key)
+{
+#ifdef SIMULATOR
+	/* Dans le simulateur PC, la barre d'espace (' ' = 32) revient a l'ecran 1.
+	 * Guard SIMULATOR : aucun effet sur la carte. */
+	if (key == ' ')
+	{
+		static_cast<FrontendApplication*>(touchgfx::Application::getInstance())->gotoUI_page1ScreenNoTransition();
+		return;
+	}
+#endif
+	UI_page2ViewBase::handleKeyEvent(key);
 }
 
 /* NOTE : la page 2 a ete redessinee dans le Designer. Les anciens widgets

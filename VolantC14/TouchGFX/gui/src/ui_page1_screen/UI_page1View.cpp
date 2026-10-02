@@ -1,4 +1,6 @@
 #include <gui/ui_page1_screen/UI_page1View.hpp>
+#include <gui/common/FrontendApplication.hpp>
+#include <touchgfx/Application.hpp>
 
 UI_page1View::UI_page1View()
 {
@@ -20,6 +22,20 @@ void UI_page1View::change_screen(uint8_t screen)
 	UI_page1ViewBase::handleKeyEvent(screen);
 }
 
+void UI_page1View::handleKeyEvent(uint8_t key)
+{
+#ifdef SIMULATOR
+	/* Dans le simulateur PC, la barre d'espace (' ' = 32) bascule vers l'ecran 2.
+	 * Guard SIMULATOR : aucun effet sur la carte. */
+	if (key == ' ')
+	{
+		static_cast<FrontendApplication*>(touchgfx::Application::getInstance())->gotoUI_page2ScreenNoTransition();
+		return;
+	}
+#endif
+	UI_page1ViewBase::handleKeyEvent(key);
+}
+
 //TouchGFX_4_23_2_tutorial_after_generating_code_step_3 : add the function like update_change_the_name
 
 void UI_page1View::update_turb_dir_value(float turb_dir_value_temps)
@@ -28,17 +44,14 @@ void UI_page1View::update_turb_dir_value(float turb_dir_value_temps)
 	turb_dir_value.invalidate();
 }
 
-/* NOTE : les widgets current_gear_value, debug_log_1..4_value et
- * change_the_name ont ete retires de la page 1 dans le Designer : ils
- * n'existent plus dans UI_page1ViewBase. Les fonctions ci-dessous les
- * ecrivaient donc dans des widgets inexistants (le code ne compilait sur
- * aucune cible). Elles sont laissees en no-op pour que le projet compile ;
- * a recabler (et a recreer les widgets dans le Designer) si ces valeurs
- * doivent etre affichees a nouveau. current_gear et debug_log restent
- * appeles par UI_page1Presenter::update_ui, sans effet pour l'instant. */
+/* NOTE : debug_log_1..4_value et change_the_name n'ont pas de widget sur la
+ * page 1 (retires dans le Designer) -> leurs fonctions restent en no-op.
+ * current_gear a de nouveau un widget (gear_value, wildcard) : cable ci-dessous. */
 void UI_page1View::update_current_gear_value(float current_gear_value_temps)
 {
-	(void)current_gear_value_temps;
+	/* Numero de vitesse (CAN 0x41, 1-14) affiche sans decimale dans gear_value. */
+	Unicode::snprintfFloat(gear_valueBuffer, GEAR_VALUE_SIZE, "%.0f", current_gear_value_temps);
+	gear_value.invalidate();
 }
 
 void UI_page1View::update_wind_dir_value(float wind_dir_value_temps)

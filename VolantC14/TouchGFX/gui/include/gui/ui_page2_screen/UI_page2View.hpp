@@ -12,6 +12,9 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 
+    // Simulateur : la barre d'espace revient a l'ecran 1 (voir .cpp, #ifdef SIMULATOR)
+    virtual void handleKeyEvent(uint8_t key);
+
     virtual void change_screen(uint8_t screen);
     virtual void update_power(float power);
     virtual void update_efficiency(float eff);
