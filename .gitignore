@@ -1,0 +1,11 @@
+# Sortie de build STM32CubeIDE
+Debug/
+Release/
+
+# Sortie du simulateur & build d'assets TouchGFX
+**/TouchGFX/build/
+**/TouchGFX/simulator/build/
+
+# Fichiers OS / éditeur
+.DS_Store
+Thumbs.db
