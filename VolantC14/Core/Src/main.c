@@ -187,10 +187,8 @@ int main(void)
       Error_Handler();
     }
 
-  screen1_task_handle = osThreadNew(screen1_task, NULL, &screen1_task_attr);
-  //screen2_task_handle = osThreadNew(screen2_task, NULL, &screen2_task_attr);
-  /* Task used for development */
-  // test_task_handle = osThreadNew(test_task, NULL, &test_task_attr);
+  /* Création des tâches FreeRTOS déplacée dans app_freertos.c -> MX_FREERTOS_Init()
+     (zone RTOS_THREADS) : osThreadNew() doit être appelé APRÈS osKernelInitialize(). */
 
   /*Configure GPIO pin Output Level */
 

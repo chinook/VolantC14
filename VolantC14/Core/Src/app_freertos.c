@@ -24,7 +24,7 @@
 #include "cmsis_os2.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "screen_tasks.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,7 +44,11 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+/* Tâches d'écran : définies dans main.c (section PV), créées ici dans RTOS_THREADS */
+extern osThreadId_t screen1_task_handle;
+extern const osThreadAttr_t screen1_task_attr;
+extern osThreadId_t screen2_task_handle;
+extern const osThreadAttr_t screen2_task_attr;
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -149,6 +153,13 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  /* Écran principal (page 1) */
+  screen1_task_handle = osThreadNew(screen1_task, NULL, &screen1_task_attr);
+
+  /* Deuxième écran (page 2) : prêt mais DÉSACTIVÉ tant que le changement d'écran
+     n'est pas implémenté sur le Volant. À décommenter quand l'équipe électrique
+     aura ajouté la bascule d'écran. */
+  //screen2_task_handle = osThreadNew(screen2_task, NULL, &screen2_task_attr);
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
