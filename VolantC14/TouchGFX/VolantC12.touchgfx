@@ -2,6 +2,72 @@
   "Application": {
     "Screens": [
       {
+        "Name": "UI_splash",
+        "Components": [
+          {
+            "Type": "Container",
+            "Name": "background",
+            "Width": 800,
+            "Height": 480,
+            "LockPosition": true,
+            "Components": [
+              {
+                "Type": "Box",
+                "Name": "black_background",
+                "Width": 800,
+                "Height": 480,
+                "LockPosition": true
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "chargement",
+            "X": 225,
+            "Y": 339,
+            "Width": 350,
+            "Height": 45,
+            "LockPosition": true,
+            "Components": [
+              {
+                "Type": "TextArea",
+                "Name": "chargement_title",
+                "Width": 350,
+                "Height": 45,
+                "LockPosition": true,
+                "TextId": "__SingleUse_KKHY",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                }
+              }
+            ]
+          },
+          {
+            "Type": "Container",
+            "Name": "chinook_image",
+            "X": 280,
+            "Y": 84,
+            "Width": 240,
+            "Height": 225,
+            "LockPosition": true,
+            "Components": [
+              {
+                "Type": "Image",
+                "Name": "chinook_ets_white",
+                "Width": 240,
+                "Height": 225,
+                "LockPosition": true,
+                "RelativeFilename": "chinook_ets_white.png"
+              }
+            ]
+          }
+        ],
+        "Interactions": []
+      },
+      {
         "Name": "UI_page1",
         "CanvasBufferSize": 12000,
         "Components": [
@@ -1766,7 +1832,7 @@
       "Height": 480
     },
     "SelectedColorDepth": 24,
-    "StartupScreenName": "UI_page1",
+    "StartupScreenName": "UI_splash",
     "SelectedStartupLanguage": "GB",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",

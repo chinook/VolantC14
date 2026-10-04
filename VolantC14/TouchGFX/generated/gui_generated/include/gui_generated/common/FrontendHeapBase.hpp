@@ -12,6 +12,8 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
 
+#include <gui/ui_splash_screen/UI_splashView.hpp>
+#include <gui/ui_splash_screen/UI_splashPresenter.hpp>
 #include <gui/ui_page1_screen/UI_page1View.hpp>
 #include <gui/ui_page1_screen/UI_page1Presenter.hpp>
 #include <gui/ui_page2_screen/UI_page2View.hpp>
@@ -38,9 +40,10 @@ public:
      * A list of all view types. Must end with meta::Nil.
      * @note All view types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< UI_page1View,
+    typedef touchgfx::meta::TypeList< UI_splashView,
+            touchgfx::meta::TypeList< UI_page1View,
             touchgfx::meta::TypeList< UI_page2View,
-            touchgfx::meta::Nil >
+            touchgfx::meta::Nil > >
             > GeneratedViewTypes;
 
     /**
@@ -52,9 +55,10 @@ public:
      * A list of all presenter types. Must end with meta::Nil.
      * @note All presenter types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< UI_page1Presenter,
+    typedef touchgfx::meta::TypeList< UI_splashPresenter,
+            touchgfx::meta::TypeList< UI_page1Presenter,
             touchgfx::meta::TypeList< UI_page2Presenter,
-            touchgfx::meta::Nil >
+            touchgfx::meta::Nil > >
             > GeneratedPresenterTypes;
 
     /**
@@ -77,7 +81,7 @@ public:
 
     virtual void gotoStartScreen(FrontendApplication& app)
     {
-        app.gotoUI_page1ScreenNoTransition();
+        app.gotoUI_splashScreenNoTransition();
     }
 protected:
     FrontendHeapBase(touchgfx::AbstractPartition& presenters, touchgfx::AbstractPartition& views, touchgfx::AbstractPartition& transitions, FrontendApplication& app)

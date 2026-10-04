@@ -11,6 +11,8 @@
 #ifdef SIMULATOR
 #include <platform/driver/lcd/LCD24bpp.hpp>
 #endif
+#include <gui/ui_splash_screen/UI_splashView.hpp>
+#include <gui/ui_splash_screen/UI_splashPresenter.hpp>
 #include <gui/ui_page1_screen/UI_page1View.hpp>
 #include <gui/ui_page1_screen/UI_page1Presenter.hpp>
 #include <gui/ui_page2_screen/UI_page2View.hpp>
@@ -35,6 +37,19 @@ FrontendApplicationBase::FrontendApplicationBase(Model& m, FrontendHeap& heap)
 /*
  * Screen Transition Declarations
  */
+
+// UI_splash
+
+void FrontendApplicationBase::gotoUI_splashScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoUI_splashScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoUI_splashScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<UI_splashView, UI_splashPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
 
 // UI_page1
 

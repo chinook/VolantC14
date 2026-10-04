@@ -208,6 +208,18 @@
     <Filter Include="Header Files\generated\gui_generated\containers">
       <UniqueIdentifier>533CA0E9-44B4-6900-9D93-4710745ED018</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\gui\ui_splash_screen">
+      <UniqueIdentifier>A583D52F-CAEB-29B2-A84F-FFE4CF0E0F7D</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\ui_splash_screen">
+      <UniqueIdentifier>AB0A9A98-2252-92A7-CC5D-AFB8CE4C813E</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\ui_splash_screen">
+      <UniqueIdentifier>9A00D2B8-0C94-A1B4-14F2-3916F2079969</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\ui_splash_screen">
+      <UniqueIdentifier>85DEA9AF-1601-5BFC-8850-BE002AC9CD0C</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -272,6 +284,15 @@
     </ClCompile>
     <ClCompile Include="..\..\gui\src\model\SimulatorData.cpp">
       <Filter>Source Files\gui\model</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\ui_splash_screen\UI_splashPresenter.cpp">
+      <Filter>Source Files\gui\ui_splash_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\ui_splash_screen\UI_splashView.cpp">
+      <Filter>Source Files\gui\ui_splash_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\ui_splash_screen\UI_splashViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\ui_splash_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -744,6 +765,15 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\value_display_containerBase.hpp">
       <Filter>Header Files\generated\gui_generated\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\ui_splash_screen\UI_splashPresenter.hpp">
+      <Filter>Header Files\gui\ui_splash_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\ui_splash_screen\UI_splashView.hpp">
+      <Filter>Header Files\gui\ui_splash_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\ui_splash_screen\UI_splashViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\ui_splash_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

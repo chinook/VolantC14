@@ -6,8 +6,9 @@
 #include <touchgfx/hal/Types.hpp>
 #include <touchgfx/Bitmap.hpp>
 
-const uint16_t BITMAP_DEMI_ID = 0;
-const uint16_t BITMAP_NEEDLE1_ID = 1;
+const uint16_t BITMAP_CHINOOK_ETS_WHITE_ID = 0;
+const uint16_t BITMAP_DEMI_ID = 1;
+const uint16_t BITMAP_NEEDLE1_ID = 2;
 
 namespace BitmapDatabase
 {

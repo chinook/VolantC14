@@ -32,6 +32,9 @@
     <ClCompile Include="..\..\gui\src\containers\value_display_container.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\containers\value_display_containerBase.cpp"/>
     <ClCompile Include="..\..\gui\src\model\SimulatorData.cpp"/>
+    <ClCompile Include="..\..\gui\src\ui_splash_screen\UI_splashPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\ui_splash_screen\UI_splashView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\ui_splash_screen\UI_splashViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xml"/>
@@ -192,6 +195,9 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\header_page_containerBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\containers\value_display_container.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\containers\value_display_containerBase.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\ui_splash_screen\UI_splashPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\ui_splash_screen\UI_splashView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\ui_splash_screen\UI_splashViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>
