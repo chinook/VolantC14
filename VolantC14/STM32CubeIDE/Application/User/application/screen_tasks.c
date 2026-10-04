@@ -134,6 +134,17 @@ void traitement_boutons() {
 	status_bouton_bg = check_button_status(&flag_bouton_bg,  GPIOB, GPIO_PIN_0);
 	status_bouton_bd = check_button_status(&flag_bouton_bd,  GPIOA, GPIO_PIN_4);
 	status_bouton_bdd = check_button_status(&flag_bouton_bdd, GPIOA, GPIO_PIN_3);
+
+	/* Bouton BD (bas-droit) : bascule l'ecran a chaque appui.
+	 * 1er clic -> page 2 (test), 2e clic -> page 1 (competition), etc.
+	 * 0 = page1, 1 = page2. Le front d'appui (last_bd) evite de rebasculer
+	 * en boucle tant que le bouton reste enfonce. */
+	static uint8_t last_bd = CAN_STATUS_UNPRESS;
+	if (status_bouton_bd == CAN_STATUS_PRESS && last_bd == CAN_STATUS_UNPRESS) {
+		desired_screen = (desired_screen == 0) ? 1 : 0;
+	}
+	last_bd = status_bouton_bd;
+
 	uint32_t data = compile_button_status_to_ONE_can_data();
 	SendCAN(CAN_ID_STATUS_BUTTONS, (uint8_t*)&data);
 }

@@ -19,13 +19,11 @@ void UI_page2Presenter::deactivate()
 
 void UI_page2Presenter::change_screen(uint8_t screen)
 {
-	/*osMessageQueueReset(screen1_pres_queue);
-	for (uint8_t i = 0; i < NUM_FIELDS; i++) {
-		uint8_t buf = arr[i];
-		osMessageQueuePut(screen1_pres_queue, &buf, 0, 0);
-	}
-
-	view.change_screen(screen); */
+	/* Necessaire pour le retour page2 -> page1 : transmet la demande de
+	 * changement d'ecran a la View, qui declenche l'interaction GotoScreen.
+	 * (La file screen1_pres_queue n'est pas requise : Model::tick() rafraichit
+	 * deja les valeurs de la page 1 a chaque tick.) */
+	view.change_screen(screen);
 }
 
 void UI_page2Presenter::update_ui(volatile void* screen)
