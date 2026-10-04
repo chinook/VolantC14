@@ -125,14 +125,14 @@ uint32_t compile_button_status_to_ONE_can_data();
 uint8_t round_robin_traitement_buttons = 0;
 void traitement_boutons() {
 	status_bouton_hgg = check_button_status(&flag_bouton_hgg, GPIOG, GPIO_PIN_2);
-	status_bouton_hg = check_button_status(&flag_bouton_hg,  GPIOB, GPIO_PIN_10);
-	status_bouton_hd = check_button_status(&flag_bouton_hd,  GPIOA, GPIO_PIN_7);
+	status_bouton_hg  = check_button_status(&flag_bouton_hg,  GPIOB, GPIO_PIN_10);
+	status_bouton_hd  = check_button_status(&flag_bouton_hd,  GPIOA, GPIO_PIN_7);
 	status_bouton_hdd = check_button_status(&flag_bouton_hdd, GPIOA, GPIO_PIN_6);
-	status_bouton_mg = check_button_status(&flag_bouton_mg,  GPIOB, GPIO_PIN_5);
-	status_bouton_md = check_button_status(&flag_bouton_md,  GPIOA, GPIO_PIN_8);
+	status_bouton_mg  = check_button_status(&flag_bouton_mg,  GPIOB, GPIO_PIN_5);
+	status_bouton_md  = check_button_status(&flag_bouton_md,  GPIOA, GPIO_PIN_8);
 	status_bouton_bgg = check_button_status(&flag_bouton_bgg, GPIOA, GPIO_PIN_15);
-	status_bouton_bg = check_button_status(&flag_bouton_bg,  GPIOB, GPIO_PIN_0);
-	status_bouton_bd = check_button_status(&flag_bouton_bd,  GPIOA, GPIO_PIN_4);
+	status_bouton_bg  = check_button_status(&flag_bouton_bg,  GPIOB, GPIO_PIN_0);
+	status_bouton_bd  = check_button_status(&flag_bouton_bd,  GPIOA, GPIO_PIN_4);
 	status_bouton_bdd = check_button_status(&flag_bouton_bdd, GPIOA, GPIO_PIN_3);
 
 	/* Bouton BD (bas-droit) : bascule l'ecran a chaque appui.
