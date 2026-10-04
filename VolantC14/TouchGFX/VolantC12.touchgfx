@@ -893,7 +893,7 @@
           {
             "Type": "Container",
             "Name": "efficiency",
-            "Y": 74,
+            "Y": 93,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -951,8 +951,9 @@
           {
             "Type": "Container",
             "Name": "rotor_speed",
-            "Y": 116,
-            "Width": 400,
+            "X": 410,
+            "Y": 303,
+            "Width": 390,
             "Height": 42,
             "LockPosition": true,
             "Components": [
@@ -1009,9 +1010,9 @@
           {
             "Type": "Container",
             "Name": "batterie",
-            "X": 415,
-            "Y": 326,
-            "Width": 400,
+            "X": 286,
+            "Y": 433,
+            "Width": 281,
             "Height": 42,
             "LockPosition": true,
             "Components": [
@@ -1033,7 +1034,7 @@
               {
                 "Type": "TextArea",
                 "Name": "batt_value",
-                "X": 266,
+                "X": 195,
                 "Width": 57,
                 "Height": 42,
                 "LockPosition": true,
@@ -1049,7 +1050,7 @@
               {
                 "Type": "TextArea",
                 "Name": "batt_unit",
-                "X": 328,
+                "X": 262,
                 "Width": 19,
                 "Height": 42,
                 "LockPosition": true,
@@ -1067,7 +1068,7 @@
           {
             "Type": "Container",
             "Name": "pitch_auto_target",
-            "Y": 326,
+            "Y": 303,
             "Width": 400,
             "Height": 84,
             "LockPosition": true,
@@ -1125,7 +1126,7 @@
           {
             "Type": "Container",
             "Name": "pitch_angle",
-            "Y": 284,
+            "Y": 261,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -1183,7 +1184,7 @@
           {
             "Type": "Container",
             "Name": "speed",
-            "Y": 242,
+            "Y": 219,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -1242,7 +1243,7 @@
           {
             "Type": "Container",
             "Name": "gear",
-            "Y": 158,
+            "Y": 135,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -1284,7 +1285,7 @@
           {
             "Type": "Container",
             "Name": "gear_ratio",
-            "Y": 200,
+            "Y": 177,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -1327,7 +1328,7 @@
             "Type": "Container",
             "Name": "wind_speed",
             "X": 400,
-            "Y": 74,
+            "Y": 93,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -1367,7 +1368,7 @@
               {
                 "Type": "TextArea",
                 "Name": "wind_unit",
-                "X": 343,
+                "X": 340,
                 "Width": 57,
                 "Height": 42,
                 "LockPosition": true,
@@ -1386,7 +1387,7 @@
             "Type": "Container",
             "Name": "wind_direction",
             "X": 400,
-            "Y": 116,
+            "Y": 135,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -1486,68 +1487,9 @@
           },
           {
             "Type": "Container",
-            "Name": "loadcell",
-            "X": 400,
-            "Y": 284,
-            "Width": 400,
-            "Height": 42,
-            "LockPosition": true,
-            "Components": [
-              {
-                "Type": "TextArea",
-                "Name": "loadcell_title",
-                "X": 15,
-                "Width": 152,
-                "Height": 42,
-                "LockPosition": true,
-                "TextId": "__SingleUse_MA79",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "AutoSize": true
-              },
-              {
-                "Type": "TextArea",
-                "Name": "loadcell_value",
-                "X": 296,
-                "Width": 38,
-                "Height": 42,
-                "LockPosition": true,
-                "TextId": "__SingleUse_MXA0",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "AutoSize": true
-              },
-              {
-                "Type": "TextArea",
-                "Name": "loadcell_unit",
-                "X": 343,
-                "Width": 19,
-                "Height": 42,
-                "LockPosition": true,
-                "TextId": "__SingleUse_2QK9",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "AutoSize": true
-              }
-            ]
-          },
-          {
-            "Type": "Container",
             "Name": "power",
             "X": 400,
-            "Y": 242,
+            "Y": 261,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -1606,7 +1548,7 @@
             "Type": "Container",
             "Name": "mast_angle",
             "X": 400,
-            "Y": 158,
+            "Y": 177,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,
@@ -1665,7 +1607,7 @@
             "Type": "Container",
             "Name": "torque",
             "X": 400,
-            "Y": 200,
+            "Y": 219,
             "Width": 400,
             "Height": 42,
             "LockPosition": true,

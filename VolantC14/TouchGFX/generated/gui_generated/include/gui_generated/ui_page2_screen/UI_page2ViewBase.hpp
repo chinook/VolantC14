@@ -75,10 +75,6 @@ protected:
     touchgfx::Container fps;
     touchgfx::TextArea fps_title;
     touchgfx::TextArea fps_value;
-    touchgfx::Container loadcell;
-    touchgfx::TextArea loadcell_title;
-    touchgfx::TextArea loadcell_value;
-    touchgfx::TextArea loadcell_unit;
     touchgfx::Container power;
     touchgfx::TextArea power_title;
     touchgfx::TextArea power_value;
