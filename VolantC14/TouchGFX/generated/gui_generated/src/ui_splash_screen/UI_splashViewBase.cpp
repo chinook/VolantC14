@@ -19,12 +19,21 @@ UI_splashViewBase::UI_splashViewBase()
 
     add(background);
 
-    chargement.setPosition(225, 339, 350, 45);
-    chargement_title.setPosition(0, 0, 350, 45);
+    chargement.setPosition(175, 327, 451, 72);
+    chargement_title.setPosition(96, 0, 258, 45);
     chargement_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     chargement_title.setLinespacing(0);
     chargement_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KKHY));
     chargement.add(chargement_title);
+
+    loading_box.setXY(25, 54);
+    loading_box.setProgressIndicatorPosition(0, 0, 400, 18);
+    loading_box.setRange(0, 100);
+    loading_box.setDirection(touchgfx::AbstractDirectionProgress::RIGHT);
+    loading_box.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_BOXPROGRESS_THICK_LARGE_ID));
+    loading_box.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    loading_box.setValue(0);
+    chargement.add(loading_box);
 
     add(chargement);
 

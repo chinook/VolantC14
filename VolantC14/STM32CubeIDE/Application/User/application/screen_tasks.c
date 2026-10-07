@@ -27,7 +27,7 @@ volatile uint8_t arr[NUM_FIELDS] = {0x1, 0x2, 0x4, 0x8, 0x10, 0x20};
 
 /* Screen1 data variables */
 float turb_dir_value 			= 0;
-float current_gear_value 			= 0;
+float current_gear_value 		= 0;
 float wind_dir_value 			= 0;
 float speed_value 				= 0;
 float tsr_value 				= 0;

@@ -23,16 +23,17 @@
           {
             "Type": "Container",
             "Name": "chargement",
-            "X": 225,
-            "Y": 339,
-            "Width": 350,
-            "Height": 45,
+            "X": 175,
+            "Y": 327,
+            "Width": 451,
+            "Height": 72,
             "LockPosition": true,
             "Components": [
               {
                 "Type": "TextArea",
                 "Name": "chargement_title",
-                "Width": 350,
+                "X": 96,
+                "Width": 258,
                 "Height": 45,
                 "LockPosition": true,
                 "TextId": "__SingleUse_KKHY",
@@ -42,6 +43,25 @@
                   "Green": 255,
                   "Blue": 255
                 }
+              },
+              {
+                "Type": "BoxProgress",
+                "Name": "loading_box",
+                "X": 25,
+                "Y": 54,
+                "Width": 400,
+                "Height": 18,
+                "LockPosition": true,
+                "Color": {
+                  "Red": 255,
+                  "Green": 255,
+                  "Blue": 255
+                },
+                "Direction": "Right",
+                "FileNameBackground": "__generated\\alternate_theme_images_widgets_boxprogress_thick_large.png",
+                "IndicatorPositionWidth": 400,
+                "IndicatorPositionHeight": 18,
+                "ProgressRangeMax": 100
               }
             ]
           },

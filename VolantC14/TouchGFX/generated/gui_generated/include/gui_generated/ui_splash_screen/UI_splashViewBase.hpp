@@ -10,6 +10,7 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 #include <touchgfx/widgets/Image.hpp>
 
 class UI_splashViewBase : public touchgfx::View<UI_splashPresenter>
@@ -32,6 +33,7 @@ protected:
     touchgfx::Box black_background;
     touchgfx::Container chargement;
     touchgfx::TextArea chargement_title;
+    touchgfx::BoxProgress loading_box;
     touchgfx::Container chinook_image;
     touchgfx::Image chinook_ets_white;
 
