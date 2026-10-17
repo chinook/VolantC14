@@ -264,7 +264,7 @@ void process_can_message(void)
 		Error_Handler();
 	} else {
 		switch (rxHeader.Identifier) {
-	    	case CAN_ID_MARIO_VAL_TURB_DIR:
+	    	case CAN_ID_MARIO_VAL_MAST_ANGLE:
 	    		if (canRx_refresh_turb_dir_value < 800000) canRx_refresh_turb_dir_value += 100000;
 	    		memcpy(&canRx_turb_dir_value, rxData, sizeof(float));
 	    		break;
