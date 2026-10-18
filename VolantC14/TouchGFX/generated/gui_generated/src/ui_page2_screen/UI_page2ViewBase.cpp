@@ -57,7 +57,7 @@ UI_page2ViewBase::UI_page2ViewBase()
 
     add(efficiency);
 
-    rotor_speed.setPosition(410, 303, 390, 42);
+    rotor_speed.setPosition(407, 303, 390, 42);
     rotor_title.setXY(5, 0);
     rotor_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     rotor_title.setLinespacing(0);
@@ -249,26 +249,20 @@ UI_page2ViewBase::UI_page2ViewBase()
 
     add(fps);
 
-    power.setPosition(400, 261, 400, 42);
-    power_title.setXY(15, 0);
-    power_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    power_title.setLinespacing(0);
-    power_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9LOG));
-    power.add(power_title);
+    tsr.setPosition(400, 261, 400, 42);
+    tsr_title.setXY(15, 0);
+    tsr_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    tsr_title.setLinespacing(0);
+    tsr_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_9LOG));
+    tsr.add(tsr_title);
 
-    power_value.setXY(296, 0);
-    power_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    power_value.setLinespacing(0);
-    power_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_UHTM));
-    power.add(power_value);
+    tsr_value.setXY(296, 0);
+    tsr_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    tsr_value.setLinespacing(0);
+    tsr_value.setTypedText(touchgfx::TypedText(T_TSR_VALUE));
+    tsr.add(tsr_value);
 
-    power_unit.setXY(343, 0);
-    power_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    power_unit.setLinespacing(0);
-    power_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_76S8));
-    power.add(power_unit);
-
-    add(power);
+    add(tsr);
 
     mast_angle.setPosition(400, 177, 400, 42);
     mast_title.setXY(15, 0);

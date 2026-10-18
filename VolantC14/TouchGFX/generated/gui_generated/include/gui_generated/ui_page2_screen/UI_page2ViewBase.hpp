@@ -75,10 +75,9 @@ protected:
     touchgfx::Container fps;
     touchgfx::TextArea fps_title;
     touchgfx::TextArea fps_value;
-    touchgfx::Container power;
-    touchgfx::TextArea power_title;
-    touchgfx::TextArea power_value;
-    touchgfx::TextArea power_unit;
+    touchgfx::Container tsr;
+    touchgfx::TextArea tsr_title;
+    touchgfx::TextArea tsr_value;
     touchgfx::Container mast_angle;
     touchgfx::TextArea mast_title;
     touchgfx::TextArea mast_value;

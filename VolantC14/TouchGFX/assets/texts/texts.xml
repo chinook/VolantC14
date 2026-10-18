@@ -51,9 +51,6 @@
       <Text Id="__SingleUse_TVWU" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">FPS</Translation>
       </Text>
-      <Text Id="__SingleUse_UHTM" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">21</Translation>
-      </Text>
       <Text Id="__SingleUse_77GS" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">N</Translation>
       </Text>
@@ -78,11 +75,8 @@
       <Text Id="__SingleUse_XYL0" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">WIND DIRECTION</Translation>
       </Text>
-      <Text Id="__SingleUse_76S8" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">N</Translation>
-      </Text>
       <Text Id="__SingleUse_9LOG" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">POWER</Translation>
+        <Translation Language="GB">TSR</Translation>
       </Text>
       <Text Id="__SingleUse_ZE88" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">MAST ANGLE</Translation>

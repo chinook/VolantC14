@@ -971,7 +971,7 @@
           {
             "Type": "Container",
             "Name": "rotor_speed",
-            "X": 410,
+            "X": 407,
             "Y": 303,
             "Width": 390,
             "Height": 42,
@@ -1507,7 +1507,7 @@
           },
           {
             "Type": "Container",
-            "Name": "power",
+            "Name": "tsr",
             "X": 400,
             "Y": 261,
             "Width": 400,
@@ -1516,9 +1516,9 @@
             "Components": [
               {
                 "Type": "TextArea",
-                "Name": "power_title",
+                "Name": "tsr_title",
                 "X": 15,
-                "Width": 95,
+                "Width": 57,
                 "Height": 42,
                 "LockPosition": true,
                 "TextId": "__SingleUse_9LOG",
@@ -1532,28 +1532,12 @@
               },
               {
                 "Type": "TextArea",
-                "Name": "power_value",
+                "Name": "tsr_value",
                 "X": 296,
-                "Width": 38,
-                "Height": 42,
-                "LockPosition": true,
-                "TextId": "__SingleUse_UHTM",
-                "TextRotation": "0",
-                "Color": {
-                  "Red": 255,
-                  "Green": 255,
-                  "Blue": 255
-                },
-                "AutoSize": true
-              },
-              {
-                "Type": "TextArea",
-                "Name": "power_unit",
-                "X": 343,
                 "Width": 19,
                 "Height": 42,
                 "LockPosition": true,
-                "TextId": "__SingleUse_76S8",
+                "TextId": "tsr_value",
                 "TextRotation": "0",
                 "Color": {
                   "Red": 255,
