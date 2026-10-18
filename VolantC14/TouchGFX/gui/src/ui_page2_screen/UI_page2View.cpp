@@ -55,7 +55,12 @@ void UI_page2View::update_efficiency(float eff)
 	(void)eff;
 }
 
-void UI_page2View::update_tsr(float tsr)
+void UI_page2View::update_tsr(float tsr_temps)
 {
-	(void)tsr;
+	/* tsr_value est un wildcard AutoSize : on recalcule sa largeur apres chaque
+	 * changement de texte (invalidate avant ET apres pour effacer l'ancienne zone). */
+	tsr_value.invalidate();
+	Unicode::snprintfFloat(tsr_valueBuffer, TSR_VALUE_SIZE, "%.1f", tsr_temps);
+	tsr_value.resizeToCurrentText();
+	tsr_value.invalidate();
 }

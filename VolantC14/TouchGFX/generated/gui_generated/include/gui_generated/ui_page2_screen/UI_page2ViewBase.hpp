@@ -10,6 +10,7 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class UI_page2ViewBase : public touchgfx::View<UI_page2Presenter>
 {
@@ -77,7 +78,7 @@ protected:
     touchgfx::TextArea fps_value;
     touchgfx::Container tsr;
     touchgfx::TextArea tsr_title;
-    touchgfx::TextArea tsr_value;
+    touchgfx::TextAreaWithOneWildcard tsr_value;
     touchgfx::Container mast_angle;
     touchgfx::TextArea mast_title;
     touchgfx::TextArea mast_value;
@@ -86,6 +87,12 @@ protected:
     touchgfx::TextArea torque_title;
     touchgfx::TextArea torque_value;
     touchgfx::TextArea torque_unit;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t TSR_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar tsr_valueBuffer[TSR_VALUE_SIZE];
 
 private:
 

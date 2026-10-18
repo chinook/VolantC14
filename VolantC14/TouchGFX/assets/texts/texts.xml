@@ -6,6 +6,9 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_PG7W" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">6</Translation>
+      </Text>
       <Text Id="__SingleUse_KKHY" Alignment="Center" TypographyId="Default">
         <Translation Language="GB">Chargement...</Translation>
       </Text>
@@ -169,7 +172,7 @@
         <Translation Language="GB">259.321</Translation>
       </Text>
       <Text Id="tsr_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">6</Translation>
+        <Translation Language="GB">&lt;&gt;</Translation>
       </Text>
       <Text Id="speed_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">000.00</Translation>

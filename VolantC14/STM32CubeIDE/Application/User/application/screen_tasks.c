@@ -390,6 +390,7 @@ static void init_screen2(void)
 	screen2_isr_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
 
 	/* Bind the variables to the proper data field */
+	screen2.tsr_value = &tsr_value;   // TSR reçu de Mario (CAN 0x44), affiché sur la page 2
 	//screen2.data1 = &power;
 	//screen2.data2 = &efficiency;
 	//screen2.data3 = &tsr;

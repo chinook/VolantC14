@@ -259,6 +259,9 @@ UI_page2ViewBase::UI_page2ViewBase()
     tsr_value.setXY(296, 0);
     tsr_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     tsr_value.setLinespacing(0);
+    Unicode::snprintf(tsr_valueBuffer, TSR_VALUE_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_PG7W).getText());
+    tsr_value.setWildcard(tsr_valueBuffer);
+    tsr_value.resizeToCurrentText();
     tsr_value.setTypedText(touchgfx::TypedText(T_TSR_VALUE));
     tsr.add(tsr_value);
 

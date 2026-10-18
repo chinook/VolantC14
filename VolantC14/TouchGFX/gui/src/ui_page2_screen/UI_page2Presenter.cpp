@@ -28,9 +28,15 @@ void UI_page2Presenter::change_screen(uint8_t screen)
 
 void UI_page2Presenter::update_ui(volatile void* screen)
 {
-	(void)screen;
-	/*
-	volatile ui_t* ui = (volatile ui_t*)screen;
+	volatile ui_t* ui = (volatile ui_t*) screen;
+
+	/* Meme principe que la page 1 : Model::tick() fournit screen2 a chaque tick. */
+	if (ui->tsr_value != 0) {
+		float tsr_value = *(const volatile float*)ui->tsr_value;
+		view.update_tsr(tsr_value);
+	}
+
+	/* Ancien mecanisme par file de messages (inutilise) :
 	uint8_t buf;
 
 	if (osMessageQueueGet(screen2_pres_queue, &buf, NULL, 0) == osOK) {

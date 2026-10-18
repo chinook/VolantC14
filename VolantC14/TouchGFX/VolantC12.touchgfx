@@ -1544,7 +1544,12 @@
                   "Green": 255,
                   "Blue": 255
                 },
-                "AutoSize": true
+                "AutoSize": true,
+                "Wildcard1": {
+                  "TextId": "__SingleUse_PG7W",
+                  "UseBuffer": true,
+                  "BufferSize": 10
+                }
               }
             ]
           },
