@@ -84,7 +84,7 @@ void UI_page1View::update_wind_dir_value(float wind_dir_value_temps)
 
 void UI_page1View::update_speed_value(float speed_value_temps)
 {
-	Unicode::snprintfFloat(speed_valueBuffer, SPEED_VALUE_SIZE, "%.2f", speed_value_temps);
+	Unicode::snprintfFloat(speed_valueBuffer, SPEED_VALUE_SIZE, "%.1f", speed_value_temps);
 	speed_value.invalidate();
 }
 
@@ -115,7 +115,7 @@ void UI_page1View::update_rotor_rops_cmd_value(float rotor_rops_cmd_value_temps)
 
 void UI_page1View::update_pitch_value(float pitch_value_temps)
 {
-	Unicode::snprintfFloat(pitch_valueBuffer, PITCH_VALUE_SIZE, "%.3f", pitch_value_temps);
+	Unicode::snprintfFloat(pitch_valueBuffer, PITCH_VALUE_SIZE, "%.1f", pitch_value_temps);
 	pitch_value.invalidate();
 }
 

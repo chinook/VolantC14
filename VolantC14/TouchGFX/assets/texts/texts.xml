@@ -154,7 +154,7 @@
         <Translation Language="GB">100</Translation>
       </Text>
       <Text Id="pitch_value" Alignment="Left" TypographyId="Default">
-        <Translation Language="GB">259.321&#10;</Translation>
+        <Translation Language="GB">259.321</Translation>
       </Text>
       <Text Id="rotor_speed_value" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">666</Translation>
