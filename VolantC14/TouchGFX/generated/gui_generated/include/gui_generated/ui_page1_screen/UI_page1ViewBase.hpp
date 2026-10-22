@@ -61,9 +61,9 @@ protected:
     touchgfx::TextAreaWithOneWildcard wind_value;
     touchgfx::TextArea wind_title;
     touchgfx::Container direction_wind_turb;
-    touchgfx::TextArea turb_dir_unit;
-    touchgfx::TextAreaWithOneWildcard turb_dir_value;
-    touchgfx::TextArea turb_dir_title;
+    touchgfx::TextArea mast_unit;
+    touchgfx::TextAreaWithOneWildcard mast_value;
+    touchgfx::TextArea mast_title;
     touchgfx::Gauge gauge1;
     touchgfx::TextArea wind_dir_unit;
     touchgfx::TextAreaWithOneWildcard wind_dir_value;
@@ -77,8 +77,8 @@ protected:
     touchgfx::TextAreaWithOneWildcard gear_value;
     touchgfx::TextArea gear_title;
     touchgfx::Container efficiency;
-    touchgfx::TextAreaWithOneWildcard efficiency_value;
     touchgfx::TextArea efficiency_unit;
+    touchgfx::TextAreaWithOneWildcard efficiency_value;
     touchgfx::TextArea efficiency_title;
     touchgfx::Container pitch;
     touchgfx::TextArea pitch_unit;
@@ -99,13 +99,13 @@ protected:
      */
     static const uint16_t WIND_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar wind_valueBuffer[WIND_VALUE_SIZE];
-    static const uint16_t TURB_DIR_VALUE_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar turb_dir_valueBuffer[TURB_DIR_VALUE_SIZE];
+    static const uint16_t MAST_VALUE_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar mast_valueBuffer[MAST_VALUE_SIZE];
     static const uint16_t WIND_DIR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar wind_dir_valueBuffer[WIND_DIR_VALUE_SIZE];
     static const uint16_t SPEED_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar speed_valueBuffer[SPEED_VALUE_SIZE];
-    static const uint16_t GEAR_VALUE_SIZE = 15;
+    static const uint16_t GEAR_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar gear_valueBuffer[GEAR_VALUE_SIZE];
     static const uint16_t EFFICIENCY_VALUE_SIZE = 10;
     touchgfx::Unicode::UnicodeChar efficiency_valueBuffer[EFFICIENCY_VALUE_SIZE];

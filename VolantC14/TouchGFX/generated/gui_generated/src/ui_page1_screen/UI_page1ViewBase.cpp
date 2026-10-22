@@ -103,25 +103,25 @@ UI_page1ViewBase::UI_page1ViewBase()
     add(wind_speed);
 
     direction_wind_turb.setPosition(550, 0, 250, 280);
-    turb_dir_unit.setPosition(220, 210, 20, 40);
-    turb_dir_unit.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
-    turb_dir_unit.setLinespacing(0);
-    turb_dir_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Z2SD));
-    direction_wind_turb.add(turb_dir_unit);
+    mast_unit.setPosition(220, 210, 20, 40);
+    mast_unit.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
+    mast_unit.setLinespacing(0);
+    mast_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_Z2SD));
+    direction_wind_turb.add(mast_unit);
 
-    turb_dir_value.setPosition(100, 210, 120, 40);
-    turb_dir_value.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
-    turb_dir_value.setLinespacing(0);
-    Unicode::snprintf(turb_dir_valueBuffer, TURB_DIR_VALUE_SIZE, "%s", touchgfx::TypedText(T_TURB_DIR_VALUE).getText());
-    turb_dir_value.setWildcard(turb_dir_valueBuffer);
-    turb_dir_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0Q4R));
-    direction_wind_turb.add(turb_dir_value);
+    mast_value.setPosition(100, 210, 120, 40);
+    mast_value.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
+    mast_value.setLinespacing(0);
+    Unicode::snprintf(mast_valueBuffer, MAST_VALUE_SIZE, "%s", touchgfx::TypedText(T_MAST_ANGLE).getText());
+    mast_value.setWildcard(mast_valueBuffer);
+    mast_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0Q4R));
+    direction_wind_turb.add(mast_value);
 
-    turb_dir_title.setPosition(0, 210, 100, 40);
-    turb_dir_title.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
-    turb_dir_title.setLinespacing(0);
-    turb_dir_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IX89));
-    direction_wind_turb.add(turb_dir_title);
+    mast_title.setPosition(0, 210, 100, 40);
+    mast_title.setColor(touchgfx::Color::getColorFromRGB(60, 255, 0));
+    mast_title.setLinespacing(0);
+    mast_title.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IX89));
+    direction_wind_turb.add(mast_title);
 
     gauge1.setBackground(touchgfx::Bitmap(BITMAP_DEMI_ID));
     gauge1.setPosition(5, 90, 240, 120);
@@ -203,6 +203,12 @@ UI_page1ViewBase::UI_page1ViewBase()
     add(gear);
 
     efficiency.setPosition(0, 0, 238, 141);
+    efficiency_unit.setPosition(141, 70, 20, 40);
+    efficiency_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    efficiency_unit.setLinespacing(0);
+    efficiency_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XUVG));
+    efficiency.add(efficiency_unit);
+
     efficiency_value.setPosition(81, 70, 60, 40);
     efficiency_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     efficiency_value.setLinespacing(0);
@@ -210,12 +216,6 @@ UI_page1ViewBase::UI_page1ViewBase()
     efficiency_value.setWildcard(efficiency_valueBuffer);
     efficiency_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_PGB7));
     efficiency.add(efficiency_value);
-
-    efficiency_unit.setPosition(141, 70, 20, 40);
-    efficiency_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    efficiency_unit.setLinespacing(0);
-    efficiency_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_XUVG));
-    efficiency.add(efficiency_unit);
 
     efficiency_title.setXY(25, 28);
     efficiency_title.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -226,13 +226,13 @@ UI_page1ViewBase::UI_page1ViewBase()
     add(efficiency);
 
     pitch.setPosition(0, 280, 240, 140);
-    pitch_unit.setPosition(188, 69, 20, 40);
+    pitch_unit.setPosition(164, 67, 20, 40);
     pitch_unit.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     pitch_unit.setLinespacing(0);
     pitch_unit.setTypedText(touchgfx::TypedText(T___SINGLEUSE_F6HM));
     pitch.add(pitch_unit);
 
-    pitch_value.setPosition(52, 69, 136, 40);
+    pitch_value.setPosition(65, 67, 109, 40);
     pitch_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     pitch_value.setLinespacing(0);
     Unicode::snprintf(pitch_valueBuffer, PITCH_VALUE_SIZE, "%s", touchgfx::TypedText(T_PITCH_VALUE).getText());
@@ -275,7 +275,7 @@ UI_page1ViewBase::UI_page1ViewBase()
     batterie_value.setPosition(205, 0, 60, 40);
     batterie_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     batterie_value.setLinespacing(0);
-    Unicode::snprintf(batterie_valueBuffer, BATTERIE_VALUE_SIZE, "%s", touchgfx::TypedText(T_EFFICIENCY_VALUE).getText());
+    Unicode::snprintf(batterie_valueBuffer, BATTERIE_VALUE_SIZE, "%s", touchgfx::TypedText(T_BATTERIE_VALUE).getText());
     batterie_value.setWildcard(batterie_valueBuffer);
     batterie_value.setTypedText(touchgfx::TypedText(T___SINGLEUSE_V1IT));
     batterie.add(batterie_value);

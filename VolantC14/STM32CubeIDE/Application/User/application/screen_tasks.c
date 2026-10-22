@@ -391,6 +391,17 @@ static void init_screen2(void)
 
 	/* Bind the variables to the proper data field */
 	screen2.tsr_value = &tsr_value;   // TSR reçu de Mario (CAN 0x44), affiché sur la page 2
+	screen2.efficiency_value = &efficiency_value;     // CAN 0x49
+	screen2.speed_value = &speed_value;               // CAN 0x43
+	screen2.current_gear_value = &current_gear_value; // CAN 0x41
+	screen2.gear_ratio_value = &gear_ratio_value;     // CAN 0x45
+	screen2.rotor_speed_value = &rotor_speed_value;   // CAN 0x46
+	screen2.turb_dir_value = &turb_dir_value;         // CAN 0x40 (angle du mât)
+	screen2.wind_dir_value = &wind_dir_value;         // CAN 0x42
+	screen2.wind_speed_value = &wind_speed_value;     // CAN 0x4A
+	screen2.pitch_cmd_value = &pitch_cmd_value;       // CAN 0x4B
+	screen2.pitch_value = &pitch_value;               // CAN 0x48
+	screen2.fps_counter_value = &fps_counter_value;   // compté sur le volant
 	//screen2.data1 = &power;
 	//screen2.data2 = &efficiency;
 	//screen2.data3 = &tsr;

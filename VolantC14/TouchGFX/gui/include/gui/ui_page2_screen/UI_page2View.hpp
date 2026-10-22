@@ -19,6 +19,16 @@ public:
     virtual void update_power(float power);
     virtual void update_efficiency(float eff);
     virtual void update_tsr(float tsr);
+    virtual void update_speed(float speed);
+    virtual void update_gear(float gear);
+    virtual void update_gear_ratio(float gear_ratio);
+    virtual void update_rotor_speed(float rotor_speed);
+    virtual void update_mast_angle(float mast_angle);
+    virtual void update_wind_dir(float wind_dir);
+    virtual void update_wind_speed(float wind_speed);
+    virtual void update_pitch_cmd(float pitch_cmd);
+    virtual void update_pitch(float pitch);
+    virtual void update_fps(float fps);
 protected:
 };
 

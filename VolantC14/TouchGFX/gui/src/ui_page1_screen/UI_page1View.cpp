@@ -43,13 +43,13 @@ void UI_page1View::update_turb_dir_value(float turb_dir_value_temps)
 	/* Mario envoie -999 tant que le mat n'est pas calibre (bouton BG) -> "--" */
 	if (turb_dir_value_temps <= -998.0f)
 	{
-		Unicode::strncpy(turb_dir_valueBuffer, "--", TURB_DIR_VALUE_SIZE);
+		Unicode::strncpy(mast_valueBuffer, "--", MAST_VALUE_SIZE);
 	}
 	else
 	{
-		Unicode::snprintfFloat(turb_dir_valueBuffer, TURB_DIR_VALUE_SIZE, "%.1f", turb_dir_value_temps);
+		Unicode::snprintfFloat(mast_valueBuffer, MAST_VALUE_SIZE, "%.1f", turb_dir_value_temps);
 	}
-	turb_dir_value.invalidate();
+	mast_value.invalidate();
 }
 
 /* NOTE : debug_log_1..4_value et change_the_name n'ont pas de widget sur la
