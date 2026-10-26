@@ -376,6 +376,35 @@
                 "ArcCapStyle": "Butt"
               },
               {
+                "Type": "Gauge",
+                "Name": "gauge2",
+                "X": 5,
+                "Y": 90,
+                "Width": 240,
+                "Height": 120,
+                "LockPosition": true,
+                "FileNameBackground": "transparent_background.png",
+                "RotationCenterX": 120.0,
+                "RotationCenterY": 120.0,
+                "StartAngle": -90.0,
+                "EndAngle": 90.0,
+                "RangeMax": 180.0,
+                "InitialValue": 90.0,
+                "Easing": "Linear",
+                "EasingOption": "In",
+                "FileNameNeedle": "needle2.png",
+                "NeedleRotationCenterX": 20.0,
+                "NeedleRotationCenterY": 110.0,
+                "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
+                "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+                "ArcColor": {
+                  "Red": 44,
+                  "Green": 255,
+                  "Blue": 1
+                },
+                "ArcCapStyle": "Butt"
+              },
+              {
                 "Type": "TextArea",
                 "Name": "wind_dir_unit",
                 "X": 220,
@@ -517,10 +546,9 @@
                 "Type": "TextArea",
                 "Name": "gear_value",
                 "X": 76,
-                "Y": 35,
+                "Y": 40,
                 "Width": 88,
-                "Height": 80,
-                "LockPosition": true,
+                "Height": 85,
                 "TextId": "__SingleUse_GEXS",
                 "TextRotation": "0",
                 "Color": {

@@ -90,6 +90,7 @@ osMessageQueueId_t screen2_isr_queue;
 /* Private functions */
 static void init_screen1(void);
 static void init_screen2(void);
+static void bind_screen2_data(void);
 
 //GPIO_PIN_SET == pas appuyé
 //GPIO_PIN_RESET == appuyé
@@ -316,6 +317,11 @@ static void init_screen1(void)
 	screen1.fps_counter_value = &fps_counter_value;
 
 	screen1.change_the_name = &change_the_name;
+
+	/* La tâche screen2_task est désactivée (app_freertos.c) : init_screen2() ne
+	 * s'exécute donc jamais. Les pointeurs de la page 2 sont branchés ici pour
+	 * que la page 2 reçoive ses valeurs. */
+	bind_screen2_data();
 }
 
 
@@ -389,6 +395,15 @@ static void init_screen2(void)
 	screen2_pres_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
 	screen2_isr_queue = osMessageQueueNew(QUEUE_SIZE, sizeof(char), NULL);
 
+	bind_screen2_data();
+}
+
+/**
+ * @brief Binds the variables of screen 2 to their data fields.
+ * Called from init_screen1() (screen2_task is disabled) and init_screen2().
+ */
+static void bind_screen2_data(void)
+{
 	/* Bind the variables to the proper data field */
 	screen2.tsr_value = &tsr_value;   // TSR reçu de Mario (CAN 0x44), affiché sur la page 2
 	screen2.efficiency_value = &efficiency_value;     // CAN 0x49

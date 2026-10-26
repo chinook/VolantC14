@@ -38,18 +38,37 @@ void UI_page1View::handleKeyEvent(uint8_t key)
 
 //TouchGFX_4_23_2_tutorial_after_generating_code_step_3 : add the function like update_change_the_name
 
+/* Course du mat affichee sur la jauge : le mat est represente sur +/-MAST_GAUGE_RANGE_DEG.
+ * 180 = meme echelle que l'aiguille du vent (valeur / 2 + 90), donc quand le mat
+ * suit le vent les deux aiguilles se rejoignent. A ajuster selon la course reelle. */
+#define MAST_GAUGE_RANGE_DEG 180.0f
+
 void UI_page1View::update_turb_dir_value(float turb_dir_value_temps)
 {
 	/* Mario envoie -999 tant que le mat n'est pas calibre (bouton BG) -> "--" */
 	if (turb_dir_value_temps <= -998.0f)
 	{
 		Unicode::strncpy(mast_valueBuffer, "--", MAST_VALUE_SIZE);
+
+		/* Pas calibre : on cache l'aiguille du mat (comme le "--"). */
+		gauge2.setVisible(false);
 	}
 	else
 	{
 		Unicode::snprintfFloat(mast_valueBuffer, MAST_VALUE_SIZE, "%.1f", turb_dir_value_temps);
+
+		/* Aiguille du mat (gauge2, needle2) : gauge2 est configuree comme gauge1
+		 * (plage 0..180, angles -90..+90). Le mat (+/-MAST_GAUGE_RANGE_DEG) est donc
+		 * ramene sur 0..180 : valeur_gauge = mat / RANGE * 90 + 90. */
+		float mast_gauge = turb_dir_value_temps / MAST_GAUGE_RANGE_DEG * 90.0f + 90.0f;
+		if (mast_gauge < 0.0f)   mast_gauge = 0.0f;
+		if (mast_gauge > 180.0f) mast_gauge = 180.0f;
+
+		gauge2.setVisible(true);
+		gauge2.updateValue((int)(mast_gauge + 0.5f), 0);
 	}
 	mast_value.invalidate();
+	gauge2.invalidate();
 }
 
 /* NOTE : debug_log_1..4_value et change_the_name n'ont pas de widget sur la

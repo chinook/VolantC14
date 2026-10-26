@@ -65,6 +65,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard mast_value;
     touchgfx::TextArea mast_title;
     touchgfx::Gauge gauge1;
+    touchgfx::Gauge gauge2;
     touchgfx::TextArea wind_dir_unit;
     touchgfx::TextAreaWithOneWildcard wind_dir_value;
     touchgfx::TextArea wind_dir_title;

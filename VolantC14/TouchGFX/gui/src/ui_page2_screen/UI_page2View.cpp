@@ -100,7 +100,7 @@ void UI_page2View::update_mast_angle(float mast_angle)
 
 void UI_page2View::update_wind_dir(float wind_dir)
 {
-	Unicode::snprintfFloat(wind_dir_valueBuffer, WIND_DIR_VALUE_SIZE, "%.1f", wind_dir);
+	Unicode::snprintfFloat(wind_dir_valueBuffer, WIND_DIR_VALUE_SIZE, "%.0f", wind_dir);
 	wind_dir_value.invalidate();
 }
 

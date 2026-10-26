@@ -14,6 +14,7 @@
 #ifdef SIMULATOR
 
 #include <stdint.h>
+#include <stdlib.h>
 
 extern "C" {
 	#include "..\..\..\..\STM32CubeIDE\Application\User\application\ui.h"
@@ -79,12 +80,26 @@ void simulator_feed_screens(void)
 		wired = true;
 	}
 
-	/* Balaye l'orientation du vent de -180 a +180 deg pour voir l'aiguille
-	 * du vent (gauge1) bouger. ~0.5 deg/tick (~60 ticks/s). */
-	sim_wind_dir += 0.5f;
-	if (sim_wind_dir > 180.0f) {
-		sim_wind_dir = -180.0f;
+	/* Vent : une direction cible aleatoire (-180..+180 deg) est tiree toutes les
+	 * 3 a 6 s ; le vent s'en approche en douceur, ce qui fait bouger l'aiguille
+	 * du vent (gauge1).
+	 * Mat : il rejoint la direction du vent avec un retard (filtre du 1er ordre,
+	 * ~1 s a 60 ticks/s), ce qui fait suivre l'aiguille du mat (gauge2) a celle du
+	 * vent. Parametres : WIND_EASE (vent), MAST_EASE (retard du mat, plus petit =
+	 * plus de retard). */
+	static const float WIND_EASE = 0.05f;
+	static const float MAST_EASE = 0.02f;
+	static float wind_target = 0.0f;
+	static int   ticks_before_new_target = 0;
+
+	if (ticks_before_new_target <= 0) {
+		wind_target = (float)(rand() % 361) - 180.0f;       /* -180..+180 */
+		ticks_before_new_target = 180 + rand() % 181;       /* 3..6 s */
 	}
+	ticks_before_new_target--;
+
+	sim_wind_dir += (wind_target - sim_wind_dir) * WIND_EASE;
+	sim_turb_dir += (sim_wind_dir - sim_turb_dir) * MAST_EASE;
 }
 
 #endif /* SIMULATOR */

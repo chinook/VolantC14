@@ -134,6 +134,17 @@ UI_page1ViewBase::UI_page1ViewBase()
     gauge1.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
     direction_wind_turb.add(gauge1);
 
+    gauge2.setBackground(touchgfx::Bitmap(BITMAP_TRANSPARENT_BACKGROUND_ID));
+    gauge2.setPosition(5, 90, 240, 120);
+    gauge2.setCenter(120, 120);
+    gauge2.setStartEndAngle(-90, 90);
+    gauge2.setRange(0, 180);
+    gauge2.setValue(90);
+    gauge2.setNeedle(BITMAP_NEEDLE2_ID, 20, 110);
+    gauge2.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    gauge2.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    direction_wind_turb.add(gauge2);
+
     wind_dir_unit.setPosition(220, 50, 20, 40);
     wind_dir_unit.setColor(touchgfx::Color::getColorFromRGB(56, 182, 255));
     wind_dir_unit.setLinespacing(0);
@@ -186,7 +197,7 @@ UI_page1ViewBase::UI_page1ViewBase()
     add(speed);
 
     gear.setPosition(0, 141, 238, 137);
-    gear_value.setPosition(76, 35, 88, 80);
+    gear_value.setPosition(76, 40, 88, 85);
     gear_value.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     gear_value.setLinespacing(0);
     Unicode::snprintf(gear_valueBuffer, GEAR_VALUE_SIZE, "%s", touchgfx::TypedText(T_CURRENT_GEAR).getText());
