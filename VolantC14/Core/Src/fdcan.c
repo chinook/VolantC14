@@ -234,15 +234,21 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 {
   if ((RxFifo0ITs & FDCAN_IT_RX_FIFO0_NEW_MESSAGE) != 0U)
   {
-    /* Retrieve Rx messages from RX FIFO0 */
-    if (HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rxHeader, rxData) != HAL_OK)
+    /* Retrieve ALL pending Rx messages from RX FIFO0.
+     * AVANT : une seule trame par interruption + Error_Handler() si la lecture echouait
+     * (Volant fige). Une interruption peut couvrir plusieurs trames : on vide la FIFO
+     * (au plus 8 passes par securite) et on ignore une lecture ratee. */
+    for (uint8_t n = 0; n < 8U && HAL_FDCAN_GetRxFifoFillLevel(hfdcan, FDCAN_RX_FIFO0) > 0U; n++)
     {
-      Error_Handler();
+      if (HAL_FDCAN_GetRxMessage(hfdcan, FDCAN_RX_FIFO0, &rxHeader, rxData) != HAL_OK)
+      {
+        break;
+      }
+
+      HAL_GPIO_TogglePin(USR_LED_1_GPIO_Port, USR_LED_1_Pin);
+
+      process_can_message();
     }
-
-    HAL_GPIO_TogglePin(USR_LED_1_GPIO_Port, USR_LED_1_Pin);
-
-    process_can_message();
 
   }
 }
@@ -259,9 +265,18 @@ void process_can_message(void)
 	// uint32_t upper_can_data = rxData[4] | (rxData[5] << 8) | (rxData[6] << 16) | (rxData[7] << 24);
 	//	uint32_t can_data = rxData[0] | (rxData[1] << 8) | (rxData[2] << 16) | (rxData[3] << 24);
 
+	/* Filtre logiciel : le filtre materiel est desactive (StdFiltersNbr = 0 dans le .ioc), donc
+	 * TOUTES les trames du bus arrivent ici (commandes Mario -> DriveMotor, etc.). On ne garde
+	 * que la plage Mario -> Volant (0x40 a 0x5F). */
+	if (rxHeader.Identifier < 0x40U || rxHeader.Identifier > 0x5FU) {
+		return;
+	}
+
 	// Check if the received message data length is correct
 	if (rxHeader.DataLength != 4) {
-		Error_Handler();
+		/* AVANT : Error_Handler() = le Volant se figeait pour toujours. Une trame de
+		 * longueur inattendue est maintenant simplement ignoree. */
+		return;
 	} else {
 		switch (rxHeader.Identifier) {
 	    	case CAN_ID_MARIO_VAL_MAST_ANGLE:

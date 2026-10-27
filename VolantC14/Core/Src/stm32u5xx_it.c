@@ -450,7 +450,23 @@ void SendCAN(uint8_t id, uint8_t* data)
 
 	if (HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan1, &pTxHeader, data) != HAL_OK)
 	{
-		Error_Handler();
+		/* Echec d'envoi (file pleine : bus coupe, pas d'ACK, bus-off...).
+		 * AVANT : Error_Handler() = interruptions coupees + boucle infinie -> le Volant
+		 * se figeait (ecran gele, boutons plus envoyes a Mario). Maintenant on abandonne
+		 * simplement cette trame (la suivante part 4 ms plus tard) et on tente de relancer
+		 * le controleur CAN s'il est en bus-off. */
+		static uint32_t last_recovery_ms = 0;
+		uint32_t now = HAL_GetTick();
+
+		FDCAN_ProtocolStatusTypeDef protocol_status;
+		if ((now - last_recovery_ms) >= 100U
+				&& HAL_FDCAN_GetProtocolStatus(&hfdcan1, &protocol_status) == HAL_OK
+				&& protocol_status.BusOff != 0U)
+		{
+			last_recovery_ms = now;
+			(void) HAL_FDCAN_Stop(&hfdcan1);
+			(void) HAL_FDCAN_Start(&hfdcan1);
+		}
 	}
 }
 
